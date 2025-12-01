@@ -1198,7 +1198,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="border-t border-royal-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <p>&copy; 2024 Hum Foundation. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Hum Foundation. All rights reserved.</p>
             <p>Designed for {DOMAIN}</p>
           </div>
         </div>
