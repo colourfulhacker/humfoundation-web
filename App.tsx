@@ -1032,9 +1032,9 @@ const ExamSystemView: React.FC = () => {
                         </div>
 
                         <div className="text-center">
-                          <div className="font-serif italic text-3xl text-royal-900 mb-2">Dr. R. K. Singh</div>
+                          <div className="font-serif italic text-3xl text-royal-900 mb-2">Rinki Ghosal</div>
                           <div className="w-48 border-t border-gray-400 pt-2">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider">Director, Hum Foundation</p>
+                            <p className="text-xs text-gray-500 uppercase tracking-wider">Founder and Chairman</p>
                           </div>
                         </div>
                       </div>
