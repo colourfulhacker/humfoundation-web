@@ -745,7 +745,7 @@ const ExamSystemView: React.FC = () => {
                           <h4 className="font-bold text-gray-800 mb-1">{material.title}</h4>
                           {material.type === 'text' && <p className="text-sm text-gray-600 leading-relaxed">{material.content}</p>}
                           {material.type === 'video' && (
-                            <div className="mt-2 aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
+                            <div className="mt-2 bg-black rounded-lg overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
                               <iframe
                                 width="100%"
                                 height="100%"
