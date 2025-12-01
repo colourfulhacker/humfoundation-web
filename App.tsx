@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ViewState, Product, QuizQuestion, QuizResult, CourseModule, SyllabusTopic } from './types';
+import { ViewState, Product, QuizQuestion, QuizResult, CourseModule, SyllabusTopic, LearningMaterial } from './types';
 import { generateQuizQuestions } from './services/geminiService';
 import {
   ShoppingBag,
@@ -150,7 +150,13 @@ const LMS_MODULES: CourseModule[] = [
     duration: '4 Hours',
     level: 'Beginner',
     materials: [
-      { type: 'text', title: 'Lesson 1: Welcome to Entrepreneurship', content: 'Entrepreneurship is the journey of creating and building a business from an idea. It requires identifying opportunities, taking calculated risks, and creating value for customers. Key characteristics of successful entrepreneurs include: (1) Vision - seeing opportunities where others see problems, (2) Resilience - bouncing back from failures and setbacks, (3) Adaptability - adjusting strategies based on market feedback, (4) Passion - genuine enthusiasm for solving customer problems, (5) Resourcefulness - making the most of limited resources. Remember: Every successful business started with someone who believed in their idea and took action.' },
+      {
+        type: 'text',
+        title: 'Lesson 1: Welcome to Entrepreneurship',
+        content: 'Entrepreneurship is the journey of creating and building a business from an idea. It requires identifying opportunities, taking calculated risks, and creating value for customers. Key characteristics of successful entrepreneurs include: (1) Vision - seeing opportunities where others see problems, (2) Resilience - bouncing back from failures and setbacks, (3) Adaptability - adjusting strategies based on market feedback, (4) Passion - genuine enthusiasm for solving customer problems, (5) Resourcefulness - making the most of limited resources. Remember: Every successful business started with someone who believed in their idea and took action.',
+        contentHi: 'उद्यमिता एक विचार से व्यवसाय बनाने और विकसित करने की यात्रा है। इसके लिए अवसरों की पहचान करना, गणना किए गए जोखिम लेना और ग्राहकों के लिए मूल्य बनाना आवश्यक है। सफल उद्यमियों की मुख्य विशेषताओं में शामिल हैं: (1) दृष्टि - जहां दूसरे समस्याएं देखते हैं वहां अवसर देखना, (2) लचीलापन - असफलताओं और झटकों से वापस उछलना, (3) अनुकूलनशीलता - बाजार की प्रतिक्रिया के आधार पर रणनीतियों को समायोजित करना, (4) जुनून - ग्राहक समस्याओं को हल करने के लिए वास्तविक उत्साह, (5) संसाधनशीलता - सीमित संसाधनों का अधिकतम उपयोग करना। याद रखें: हर सफल व्यवसाय किसी ऐसे व्यक्ति के साथ शुरू हुआ जो अपने विचार में विश्वास करता था और कार्रवाई करता था।',
+        contentBn: 'উদ্যোক্তা হল একটি ধারণা থেকে ব্যবসা তৈরি এবং গড়ে তোলার যাত্রা। এর জন্য সুযোগ চিহ্নিত করা, গণনাকৃত ঝুঁকি নেওয়া এবং গ্রাহকদের জন্য মূল্য তৈরি করা প্রয়োজন। সফল উদ্যোক্তাদের মূল বৈশিষ্ট্যগুলির মধ্যে রয়েছে: (1) দৃষ্টি - যেখানে অন্যরা সমস্যা দেখে সেখানে সুযোগ দেখা, (2) স্থিতিস্থাপকতা - ব্যর্থতা এবং বিপর্যয় থেকে ফিরে আসা, (3) অভিযোজনযোগ্যতা - বাজারের প্রতিক্রিয়ার উপর ভিত্তি করে কৌশল সামঞ্জস্য করা, (4) আবেগ - গ্রাহক সমস্যা সমাধানের জন্য প্রকৃত উত্সাহ, (5) সম্পদশীলতা - সীমিত সম্পদের সর্বাধিক ব্যবহার করা। মনে রাখবেন: প্রতিটি সফল ব্যবসা এমন কারো সাথে শুরু হয়েছিল যিনি তাদের ধারণায় বিশ্বাস করেছিলেন এবং পদক্ষেপ নিয়েছিলেন।'
+      },
       { type: 'text', title: 'Lesson 2: The Entrepreneurial Mindset', content: 'Entrepreneurship is not just about starting a business; it is about solving problems. Successful entrepreneurs identify gaps in the market and create value. Key traits include resilience, adaptability, and vision. Develop a growth mindset by: viewing failures as learning opportunities, seeking feedback constantly, staying curious about customer needs, and continuously improving your skills.' },
       { type: 'text', title: 'Lesson 3: Legal Structures in India', content: 'Choosing the right business structure is crucial. In India, common options include: (1) Sole Proprietorship - simplest form, owned by one person, easy to start but unlimited liability, (2) Partnership - 2+ people share profits and responsibilities, (3) Private Limited Company (Pvt Ltd) - separate legal entity, limited liability, requires minimum 2 directors, (4) Limited Liability Partnership (LLP) - hybrid structure combining benefits of partnership and company. Consider factors like liability protection, tax implications, compliance requirements, and funding needs when choosing.' },
       { type: 'pdf', title: 'Business Plan Template.pdf' }
@@ -630,6 +636,14 @@ const ExamSystemView: React.FC = () => {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [result, setResult] = useState<QuizResult | null>(null);
   const [candidateName, setCandidateName] = useState("");
+  const [language, setLanguage] = useState<'en' | 'hi' | 'bn'>('en');
+
+  // Helper function to get content in selected language
+  const getContent = (material: LearningMaterial): string => {
+    if (language === 'hi' && material.contentHi) return material.contentHi;
+    if (language === 'bn' && material.contentBn) return material.contentBn;
+    return material.content || '';
+  };
 
   const startLearning = (module: CourseModule) => {
     if (!candidateName.trim()) {
@@ -697,6 +711,40 @@ const ExamSystemView: React.FC = () => {
               </div>
             </div>
 
+            {/* Language Selector */}
+            <div className="bg-white p-6 rounded-xl shadow-md mb-8 border border-gray-200">
+              <h3 className="text-lg font-bold mb-3">Learning Language / शिक्षा भाषा / শিক্ষার ভাষা</h3>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-6 py-2 rounded-lg font-medium transition-all ${language === 'en'
+                    ? 'bg-royal-900 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => setLanguage('hi')}
+                  className={`px-6 py-2 rounded-lg font-medium transition-all ${language === 'hi'
+                    ? 'bg-royal-900 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                >
+                  हिंदी (Hindi)
+                </button>
+                <button
+                  onClick={() => setLanguage('bn')}
+                  className={`px-6 py-2 rounded-lg font-medium transition-all ${language === 'bn'
+                    ? 'bg-royal-900 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                >
+                  বাংলা (Bengali)
+                </button>
+              </div>
+            </div>
+
             <div className="grid gap-6">
               {LMS_MODULES.map(module => (
                 <div key={module.id} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-royal-900 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -746,7 +794,7 @@ const ExamSystemView: React.FC = () => {
                         </div>
                         <div className="flex-grow">
                           <h4 className="font-bold text-gray-800 mb-1">{material.title}</h4>
-                          {material.type === 'text' && <p className="text-sm text-gray-600 leading-relaxed">{material.content}</p>}
+                          {material.type === 'text' && <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">{getContent(material)}</p>}
                           {material.type === 'video' && (
                             <div className="mt-2 bg-black rounded-lg overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
                               <iframe

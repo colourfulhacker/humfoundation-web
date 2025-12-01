@@ -45,10 +45,14 @@ export interface CourseModule {
   materials?: LearningMaterial[];
 }
 
+export type Language = 'en' | 'hi' | 'bn';
+
 export interface LearningMaterial {
-  type: 'video' | 'pdf' | 'text';
+  type: 'video' | 'text' | 'pdf';
   title: string;
   content?: string; // For text
+  contentHi?: string;  // Hindi translation
+  contentBn?: string;  // Bengali translation
   url?: string; // For video/pdf
 }
 
