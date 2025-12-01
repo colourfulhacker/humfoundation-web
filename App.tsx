@@ -150,7 +150,7 @@ const LMS_MODULES: CourseModule[] = [
     duration: '4 Hours',
     level: 'Beginner',
     materials: [
-      { type: 'video', title: 'Welcome to Entrepreneurship', url: 'https://www.youtube.com/embed/W75ngd0_F90' },
+      { type: 'video', title: 'Welcome to Entrepreneurship', url: 'https://www.youtube.com/embed/rD_mD8r-iX4' },
       { type: 'text', title: 'Chapter 1: The Entrepreneurial Mindset', content: 'Entrepreneurship is not just about starting a business; it is about solving problems. Successful entrepreneurs identify gaps in the market and create value. Key traits include resilience, adaptability, and vision.' },
       { type: 'pdf', title: 'Business Plan Template.pdf' }
     ]
@@ -162,7 +162,7 @@ const LMS_MODULES: CourseModule[] = [
     duration: '6 Hours',
     level: 'Intermediate',
     materials: [
-      { type: 'video', title: 'Social Media Strategy', url: 'https://www.youtube.com/embed/h95cQiEptLq' },
+      { type: 'video', title: 'Social Media Strategy', url: 'https://www.youtube.com/embed/nU-IIXTCBjo' },
       { type: 'text', title: 'Understanding Your Audience', content: 'Before you post, you must listen. Who is your customer? What do they need? Use tools like Analytics to understand demographics.' },
       { type: 'pdf', title: 'Content Calendar 2024.pdf' }
     ]
@@ -174,7 +174,7 @@ const LMS_MODULES: CourseModule[] = [
     duration: '5 Hours',
     level: 'Advanced',
     materials: [
-      { type: 'video', title: 'Cash Flow Management', url: 'https://www.youtube.com/embed/p7HKvqRI_Bo' },
+      { type: 'video', title: 'Cash Flow Management', url: 'https://www.youtube.com/embed/sR-qL7QdVZQ' },
       { type: 'text', title: 'Basics of GST', content: 'Goods and Services Tax (GST) is a comprehensive indirect tax on manufacture, sale, and consumption of goods and services throughout India.' }
     ]
   },
@@ -1080,7 +1080,7 @@ const App: React.FC = () => {
               <ul className="space-y-3 text-gray-300 text-sm">
                 <li>{CONTACT_EMAIL}</li>
                 <li>{CONTACT_PHONE}</li>
-                <li>New Delhi, India</li>
+                <li>Kolkata, India</li>
               </ul>
             </div>
           </div>
