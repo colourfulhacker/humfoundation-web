@@ -19,8 +19,21 @@ import {
   BookOpen,
   ChevronRight,
   Clock,
-  Printer
+  Printer,
+  MessageCircle,
+  Mail
 } from 'lucide-react';
+
+// --- Global Constants ---
+const CONTACT_PHONE = "+91 98048 01045";
+const CONTACT_PHONE_RAW = "919804801045";
+const CONTACT_EMAIL = "contact@humfoundation.co.in";
+const DOMAIN = "humfoundation.co.in";
+
+const openWhatsApp = (message: string) => {
+  const url = `https://wa.me/${CONTACT_PHONE_RAW}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+};
 
 // --- Data ---
 
@@ -224,7 +237,7 @@ const HomeView: React.FC<{ setView: (v: ViewState) => void }> = ({ setView }) =>
               Hum Foundation empowers women entrepreneurs and SC/ST communities through business guidance, skill training, and a global marketplace.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={() => setView(ViewState.BUSINESS_SUPPORT)} variant="secondary">
+              <Button onClick={() => openWhatsApp("Hi Hum Foundation, I want to start a business. Please guide me.")} variant="secondary">
                 Start Your Business <ArrowRight size={20} />
               </Button>
               <Button onClick={() => setView(ViewState.MARKETPLACE)} variant="outline" className="!text-white !border-white hover:!bg-white hover:!text-royal-900">
@@ -323,7 +336,9 @@ const BusinessSupportView: React.FC = () => (
             </li>
           ))}
         </ul>
-        <Button>Register Your Business Interest</Button>
+        <Button onClick={() => openWhatsApp("Hi Hum Foundation, I am interested in your Business Support services. Please help me register and grow my business.")}>
+          Register Your Business Interest
+        </Button>
       </div>
       <div className="relative">
         <div className="absolute inset-0 bg-gold-400 transform translate-x-4 translate-y-4 rounded-lg"></div>
@@ -398,7 +413,12 @@ const SyllabusModal: React.FC<{ topic: string, onClose: () => void }> = ({ topic
 
           <div className="flex justify-end gap-4 border-t pt-6">
             <Button variant="outline" onClick={onClose}>Close</Button>
-            <Button onClick={() => { alert('Enrollment request sent!'); onClose(); }} className="bg-teal-800 hover:bg-teal-900 text-white">Enroll Now</Button>
+            <Button onClick={() => { 
+              openWhatsApp(`Hi Hum Foundation, I want to enroll in the ${data.title} training program. Please provide me with the details.`); 
+              onClose(); 
+            }} className="bg-teal-800 hover:bg-teal-900 text-white">
+              Enroll Now (via WhatsApp)
+            </Button>
           </div>
         </div>
       </div>
@@ -446,7 +466,9 @@ const ScstTrainingView: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Button variant="secondary">Apply for Training Program</Button>
+          <Button variant="secondary" onClick={() => openWhatsApp("Hi Hum Foundation, I am interested in the SC/ST Government Training Programs. Please guide me.")}>
+            Apply for Training Program
+          </Button>
         </div>
       </div>
       
@@ -476,6 +498,17 @@ const MarketplaceView: React.FC = () => {
     setCart([...cart, product]);
   };
 
+  const checkoutViaWhatsApp = () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+    const itemsList = cart.map((p, i) => `${i + 1}. ${p.name} - ₹${p.price}`).join('\n');
+    const total = cart.reduce((sum, p) => sum + p.price, 0);
+    const message = `Hi Hum Foundation, I would like to order the following items from the Marketplace:\n\n${itemsList}\n\nTotal: ₹${total}\n\nPlease confirm my order.`;
+    openWhatsApp(message);
+  };
+
   return (
     <div className="bg-stone-50 min-h-screen py-12 animate-fade-in">
       <div className="container mx-auto px-6">
@@ -487,13 +520,19 @@ const MarketplaceView: React.FC = () => {
           
           <div className="flex items-center gap-4 mt-6 md:mt-0">
              <div className="relative">
-               <button className="p-3 bg-white rounded-full shadow-md text-royal-900 transition-transform hover:scale-105">
+               <button 
+                onClick={checkoutViaWhatsApp}
+                className="p-3 bg-white rounded-full shadow-md text-royal-900 transition-transform hover:scale-105 group relative"
+               >
                  <ShoppingBag size={24} />
                  {cart.length > 0 && (
                    <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
                      {cart.length}
                    </span>
                  )}
+                 <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-royal-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                   Checkout via WhatsApp
+                 </span>
                </button>
              </div>
           </div>
@@ -884,14 +923,19 @@ const ContactView: React.FC = () => (
                 <div className="bg-royal-800 p-8 rounded-lg flex flex-col items-center min-w-[250px] shadow-lg border border-royal-700">
                     <Phone className="mb-4 text-gold-500" size={32} />
                     <h3 className="text-xl font-bold mb-2">Helpline</h3>
-                    <p className="text-royal-200">+91 98765 43210</p>
+                    <a href={`tel:${CONTACT_PHONE}`} className="text-royal-200 hover:text-white transition-colors text-lg font-medium">{CONTACT_PHONE}</a>
                     <p className="text-sm text-royal-300 mt-2">Mon - Sat, 9am - 6pm</p>
                 </div>
                 <div className="bg-royal-800 p-8 rounded-lg flex flex-col items-center min-w-[250px] shadow-lg border border-royal-700">
                     <div className="mb-4 text-gold-500 font-bold text-2xl border-2 border-gold-500 rounded-full w-8 h-8 flex items-center justify-center">W</div>
                     <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
                     <p className="text-royal-200">Chat Support Available</p>
-                    <Button variant="secondary" className="mt-4 py-2 text-sm w-full">Chat Now</Button>
+                    <Button variant="secondary" className="mt-4 py-2 text-sm w-full" onClick={() => openWhatsApp("Hi Hum Foundation, I have a query.")}>Chat Now</Button>
+                </div>
+                <div className="bg-royal-800 p-8 rounded-lg flex flex-col items-center min-w-[250px] shadow-lg border border-royal-700">
+                    <Mail className="mb-4 text-gold-500" size={32} />
+                    <h3 className="text-xl font-bold mb-2">Email Us</h3>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-royal-200 hover:text-white transition-colors">{CONTACT_EMAIL}</a>
                 </div>
             </div>
         </div>
@@ -1001,8 +1045,8 @@ const App: React.FC = () => {
             <div>
               <h4 className="text-gold-500 font-bold mb-6 uppercase tracking-wider text-sm">Contact</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
-                <li>contact@humfoundation.org</li>
-                <li>+91 11 2345 6789</li>
+                <li>{CONTACT_EMAIL}</li>
+                <li>{CONTACT_PHONE}</li>
                 <li>New Delhi, India</li>
               </ul>
             </div>
@@ -1010,7 +1054,7 @@ const App: React.FC = () => {
           
           <div className="border-t border-royal-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>&copy; 2024 Hum Foundation. All rights reserved.</p>
-            <p>Designed for Impact.</p>
+            <p>Designed for {DOMAIN}</p>
           </div>
         </div>
       </footer>
