@@ -972,69 +972,69 @@ const ExamSystemView: React.FC = () => {
 
             {/* Certificate View (Visible on Screen & Print) */}
             {result.passed && (
-              <div className="hidden print:flex print:visible relative mx-auto" id="certificate-container">
-                <div className="w-[1123px] h-[794px] bg-white p-2 relative shadow-2xl mx-auto text-left print:shadow-none">
+              <div className="mt-12 print:mt-0">
+                <div className="w-full max-w-4xl mx-auto bg-white p-4 md:p-8 relative shadow-2xl print:shadow-none print:w-[1123px] print:h-[794px] print:max-w-none" id="certificate-container">
                   {/* Border Frame */}
-                  <div className="h-full w-full border-[20px] border-royal-900 relative p-2">
-                    <div className="h-full w-full border-[4px] border-gold-500 relative flex flex-col p-12 bg-certificate-pattern">
+                  <div className="h-full w-full border-8 md:border-[20px] border-royal-900 relative p-2">
+                    <div className="h-full w-full border-2 md:border-[4px] border-gold-500 relative flex flex-col p-6 md:p-12 bg-certificate-pattern">
 
                       {/* Corner Decorations */}
-                      <div className="absolute top-0 left-0 w-32 h-32 border-t-[4px] border-l-[4px] border-royal-900 m-2"></div>
-                      <div className="absolute top-0 right-0 w-32 h-32 border-t-[4px] border-r-[4px] border-royal-900 m-2"></div>
-                      <div className="absolute bottom-0 left-0 w-32 h-32 border-b-[4px] border-l-[4px] border-royal-900 m-2"></div>
-                      <div className="absolute bottom-0 right-0 w-32 h-32 border-b-[4px] border-r-[4px] border-royal-900 m-2"></div>
+                      <div className="absolute top-0 left-0 w-16 h-16 md:w-32 md:h-32 border-t-2 border-l-2 md:border-t-[4px] md:border-l-[4px] border-royal-900 m-1 md:m-2"></div>
+                      <div className="absolute top-0 right-0 w-16 h-16 md:w-32 md:h-32 border-t-2 border-r-2 md:border-t-[4px] md:border-r-[4px] border-royal-900 m-1 md:m-2"></div>
+                      <div className="absolute bottom-0 left-0 w-16 h-16 md:w-32 md:h-32 border-b-2 border-l-2 md:border-b-[4px] md:border-l-[4px] border-royal-900 m-1 md:m-2"></div>
+                      <div className="absolute bottom-0 right-0 w-16 h-16 md:w-32 md:h-32 border-b-2 border-r-2 md:border-b-[4px] md:border-r-[4px] border-royal-900 m-1 md:m-2"></div>
 
                       {/* Header */}
-                      <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-3 mb-6">
-                          <div className="w-12 h-12 bg-royal-900 text-gold-500 flex items-center justify-center font-serif font-bold text-2xl rounded-tr-xl rounded-bl-xl">H</div>
-                          <h1 className="text-4xl font-serif font-bold text-royal-900 tracking-wider">HUM FOUNDATION</h1>
+                      <div className="text-center mb-6 md:mb-12">
+                        <div className="inline-flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                          <div className="w-8 h-8 md:w-12 md:h-12 bg-royal-900 text-gold-500 flex items-center justify-center font-serif font-bold text-lg md:text-2xl rounded-tr-xl rounded-bl-xl">H</div>
+                          <h1 className="text-2xl md:text-4xl font-serif font-bold text-royal-900 tracking-wider">HUM FOUNDATION</h1>
                         </div>
-                        <h2 className="text-6xl font-serif font-bold text-gold-600 uppercase tracking-widest mb-2">Certificate</h2>
-                        <p className="text-xl text-gray-500 uppercase tracking-[0.2em]">Of Completion</p>
+                        <h2 className="text-3xl md:text-6xl font-serif font-bold text-gold-600 uppercase tracking-widest mb-1 md:mb-2">Certificate</h2>
+                        <p className="text-sm md:text-xl text-gray-500 uppercase tracking-[0.2em]">Of Completion</p>
                       </div>
 
                       {/* Content */}
                       <div className="text-center flex-grow flex flex-col justify-center">
-                        <p className="text-gray-600 text-lg italic mb-4">This acknowledges that</p>
-                        <h3 className="text-5xl font-serif font-bold text-royal-900 mb-2">{result.candidateName}</h3>
-                        <div className="w-2/3 h-[2px] bg-gray-300 mx-auto mb-8"></div>
+                        <p className="text-sm md:text-lg text-gray-600 italic mb-2 md:mb-4">This acknowledges that</p>
+                        <h3 className="text-2xl md:text-5xl font-serif font-bold text-royal-900 mb-2">{result.candidateName}</h3>
+                        <div className="w-2/3 h-[1px] md:h-[2px] bg-gray-300 mx-auto mb-4 md:mb-8"></div>
 
-                        <p className="text-gray-600 text-lg italic mb-4">Has successfully fulfilled all requirements for the curriculum</p>
-                        <h3 className="text-3xl font-bold text-teal-900 mb-8">{result.topic}</h3>
+                        <p className="text-sm md:text-lg text-gray-600 italic mb-2 md:mb-4">Has successfully fulfilled all requirements for the curriculum</p>
+                        <h3 className="text-xl md:text-3xl font-bold text-teal-900 mb-4 md:mb-8">{result.topic}</h3>
 
-                        <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xs md:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed px-4">
                           This certification demonstrates proficiency in the prescribed syllabus and successful clearance of the Hum Foundation Standardized Assessment.
                         </p>
                       </div>
 
                       {/* Footer */}
-                      <div className="flex justify-between items-end mt-12 px-12">
+                      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mt-6 md:mt-12 px-4 md:px-12 gap-6 md:gap-0">
                         <div className="text-center">
-                          <p className="text-lg font-bold text-gray-800 mb-2">{result.date}</p>
-                          <div className="w-48 border-t border-gray-400 pt-2">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider">Date of Issue</p>
+                          <p className="text-sm md:text-lg font-bold text-gray-800 mb-2">{result.date}</p>
+                          <div className="w-32 md:w-48 border-t border-gray-400 pt-2">
+                            <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Date of Issue</p>
                           </div>
                         </div>
 
                         <div className="text-center">
                           {/* Seal */}
-                          <div className="w-32 h-32 relative mx-auto mb-2">
-                            <div className="absolute inset-0 border-4 border-gold-500 rounded-full flex items-center justify-center">
+                          <div className="w-20 h-20 md:w-32 md:h-32 relative mx-auto mb-2">
+                            <div className="absolute inset-0 border-2 md:border-4 border-gold-500 rounded-full flex items-center justify-center">
                               <div className="text-center">
-                                <div className="text-[10px] uppercase tracking-widest text-royal-900 font-bold">Official Seal</div>
-                                <Star className="w-8 h-8 text-gold-500 mx-auto my-1" fill="currentColor" />
-                                <div className="text-[8px] text-gray-500">HF-CERTIFIED</div>
+                                <div className="text-[8px] md:text-[10px] uppercase tracking-widest text-royal-900 font-bold">Official Seal</div>
+                                <Star className="w-5 h-5 md:w-8 md:h-8 text-gold-500 mx-auto my-1" fill="currentColor" />
+                                <div className="text-[6px] md:text-[8px] text-gray-500">HF-CERTIFIED</div>
                               </div>
                             </div>
                           </div>
-                          <p className="text-xs text-gray-400 font-mono">{result.certificateId}</p>
+                          <p className="text-[10px] md:text-xs text-gray-400 font-mono">{result.certificateId}</p>
                         </div>
 
                         <div className="text-center">
-                          <div className="font-serif italic text-3xl text-royal-900 mb-2">Rinki Ghosal</div>
-                          <div className="w-48 border-t border-gray-400 pt-2">
-                            <p className="text-xs text-gray-500 uppercase tracking-wider">Founder and Chairman</p>
+                          <div className="font-serif italic text-xl md:text-3xl text-royal-900 mb-2">Rinki Ghosal</div>
+                          <div className="w-32 md:w-48 border-t border-gray-400 pt-2">
+                            <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Founder and Chairman</p>
                           </div>
                         </div>
                       </div>
