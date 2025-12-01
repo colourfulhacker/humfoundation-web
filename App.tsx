@@ -486,38 +486,38 @@ const MarketplaceView: React.FC = () => {
   const products: Product[] = [
     // Terracotta
     { id: 101, name: "Handcrafted Terracotta Diya Set", artisan: "Village Women SHG", price: 250, category: "Terracotta", image: "terracotta_diya_set.png" },
-    { id: 102, name: "Decorative Terracotta Pot", artisan: "Riya Arts", price: 550, category: "Terracotta", image: "https://images.unsplash.com/photo-1596350338223-9c8cb5725f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 103, name: "Terracotta Wall Hanging", artisan: "Mitti Creations", price: 850, category: "Terracotta", image: "https://images.unsplash.com/photo-1590845947698-8924d7409b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 104, name: "Terracotta Jewelry Set", artisan: "Shilpa Crafts", price: 450, category: "Terracotta", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 105, name: "Kulhad Cups (Set of 6)", artisan: "Potters of Bengal", price: 300, category: "Terracotta", image: "https://images.unsplash.com/photo-1578749556935-ef88814b29c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { id: 102, name: "Decorative Terracotta Pot", artisan: "Riya Arts", price: 550, category: "Terracotta", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 103, name: "Terracotta Wall Hanging", artisan: "Mitti Creations", price: 850, category: "Terracotta", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 104, name: "Terracotta Jewelry Set", artisan: "Shilpa Crafts", price: 450, category: "Terracotta", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 105, name: "Kulhad Cups (Set of 6)", artisan: "Potters of Bengal", price: 300, category: "Terracotta", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
 
     // Kantha Stitch
-    { id: 201, name: "Kantha Stitch Silk Saree", artisan: "Malda Weavers", price: 4500, category: "Kantha Stitch", image: "https://images.unsplash.com/photo-1610189012906-47833822b678?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 202, name: "Kantha Embroidered Dupatta", artisan: "Shantiniketan Artisans", price: 1200, category: "Kantha Stitch", image: "https://images.unsplash.com/photo-1583391733958-e04f6764493f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 203, name: "Hand-stitched Kantha Quilt", artisan: "Rural Women Co-op", price: 3500, category: "Kantha Stitch", image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 204, name: "Kantha Work Tote Bag", artisan: "EcoStyle", price: 650, category: "Kantha Stitch", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { id: 201, name: "Kantha Stitch Silk Saree", artisan: "Malda Weavers", price: 4500, category: "Kantha Stitch", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 202, name: "Kantha Embroidered Dupatta", artisan: "Shantiniketan Artisans", price: 1200, category: "Kantha Stitch", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 203, name: "Hand-stitched Kantha Quilt", artisan: "Rural Women Co-op", price: 3500, category: "Kantha Stitch", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 204, name: "Kantha Work Tote Bag", artisan: "EcoStyle", price: 650, category: "Kantha Stitch", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
 
     // Jute & Bamboo
-    { id: 301, name: "Eco-friendly Jute Handbag", artisan: "Green Earth SHG", price: 450, category: "Jute & Bamboo", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 302, name: "Braided Jute Table Mat", artisan: "Golden Fiber Crafts", price: 350, category: "Jute & Bamboo", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 303, name: "Handwoven Bamboo Basket", artisan: "Tribal Cane Works", price: 550, category: "Jute & Bamboo", image: "https://images.unsplash.com/photo-1597858603688-66236b281f6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 304, name: "Bamboo Cane Lamp Shade", artisan: "Forest Arts", price: 950, category: "Jute & Bamboo", image: "https://images.unsplash.com/photo-1513506003011-3b03c80165bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { id: 301, name: "Eco-friendly Jute Handbag", artisan: "Green Earth SHG", price: 450, category: "Jute & Bamboo", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 302, name: "Braided Jute Table Mat", artisan: "Golden Fiber Crafts", price: 350, category: "Jute & Bamboo", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 303, name: "Handwoven Bamboo Basket", artisan: "Tribal Cane Works", price: 550, category: "Jute & Bamboo", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 304, name: "Bamboo Cane Lamp Shade", artisan: "Forest Arts", price: 950, category: "Jute & Bamboo", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
 
     // Dokra/Metal
-    { id: 401, name: "Dokra Tribal Figurine", artisan: "Bankura Metal Crafts", price: 1500, category: "Dokra/Metal", image: "https://images.unsplash.com/photo-1533158388470-9a56699990c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 402, name: "Brass Dokra Jewelry Box", artisan: "Ancient Arts", price: 1200, category: "Dokra/Metal", image: "https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 403, name: "Tribal Metal Pendant", artisan: "Adivasi Silpa", price: 350, category: "Dokra/Metal", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { id: 401, name: "Dokra Tribal Figurine", artisan: "Bankura Metal Crafts", price: 1500, category: "Dokra/Metal", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 402, name: "Brass Dokra Jewelry Box", artisan: "Ancient Arts", price: 1200, category: "Dokra/Metal", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 403, name: "Tribal Metal Pendant", artisan: "Adivasi Silpa", price: 350, category: "Dokra/Metal", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
 
     // Hand Embroidery
-    { id: 501, name: "Mirror Work Wall Panel", artisan: "Gujarati Artisans", price: 1800, category: "Hand Embroidery", image: "https://images.unsplash.com/photo-1620799140408-ed5341cd2431?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 502, name: "Zari Work Clutch", artisan: "Royal Threads", price: 950, category: "Hand Embroidery", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 503, name: "Hand Embroidered Cushion Cover", artisan: "Needle Magic", price: 450, category: "Hand Embroidery", image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { id: 501, name: "Mirror Work Wall Panel", artisan: "Gujarati Artisans", price: 1800, category: "Hand Embroidery", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 502, name: "Zari Work Clutch", artisan: "Royal Threads", price: 950, category: "Hand Embroidery", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 503, name: "Hand Embroidered Cushion Cover", artisan: "Needle Magic", price: 450, category: "Hand Embroidery", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
 
     // Existing Categories (Food & Beauty)
-    { id: 601, name: "Organic Turmeric Powder", artisan: "Village SHG", price: 250, category: "Food", image: "https://images.unsplash.com/photo-1615485500704-8e99099928b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 602, name: "Homemade Mango Pickle", artisan: "Grandma's Recipe", price: 180, category: "Food", image: "https://images.unsplash.com/photo-1589135233689-d53f4506dc63?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 701, name: "Herbal Hair Oil", artisan: "Nature Pure", price: 400, category: "Beauty", image: "https://images.unsplash.com/photo-1626442674393-272e532b2a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { id: 702, name: "Handmade Sandalwood Soap", artisan: "Forest Essentials", price: 150, category: "Beauty", image: "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { id: 601, name: "Organic Turmeric Powder", artisan: "Village SHG", price: 250, category: "Food", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 602, name: "Homemade Mango Pickle", artisan: "Grandma's Recipe", price: 180, category: "Food", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 701, name: "Herbal Hair Oil", artisan: "Nature Pure", price: 400, category: "Beauty", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
+    { id: 702, name: "Handmade Sandalwood Soap", artisan: "Forest Essentials", price: 150, category: "Beauty", image: "https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Product+Image" },
   ];
 
   const categories = ["All", "Terracotta", "Kantha Stitch", "Jute & Bamboo", "Dokra/Metal", "Hand Embroidery", "Food", "Beauty"];
