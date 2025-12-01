@@ -758,7 +758,13 @@ const ExamSystemView: React.FC = () => {
                             </div>
                           )}
                           {material.type === 'pdf' && (
-                            <a href="#" className="text-teal-700 text-sm font-medium hover:underline mt-1 inline-block">Download Reference Material</a>
+                            <a
+                              href={material.title.includes('Business') ? '/Business_Plan_Template.txt' : '/Content_Calendar_2024.txt'}
+                              download={material.title.replace('.pdf', '.txt')}
+                              className="text-teal-700 text-sm font-medium hover:underline mt-1 inline-block flex items-center gap-1"
+                            >
+                              <Download size={16} /> Download {material.title.replace('.pdf', ' Template')}
+                            </a>
                           )}
                         </div>
                       </div>
@@ -1164,10 +1170,10 @@ const App: React.FC = () => {
             <div>
               <h4 className="text-gold-500 font-bold mb-6 uppercase tracking-wider text-sm">Services</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
-                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I want to register my business with Hum Foundation. Please guide me.")}>Business Registration</li>
-                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I'm interested in micro-funding options. Please provide more information.")}>Micro-funding</li>
-                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I want to enroll in skill training programs. Please share details.")}>Skill Training</li>
-                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I want to sell my products on your marketplace. Please help me with onboarding.")}>Marketplace Onboarding</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => setView(ViewState.BUSINESS_SUPPORT)}>Business Registration</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => setView(ViewState.BUSINESS_SUPPORT)}>Micro-funding</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => setView(ViewState.SCST_TRAINING)}>Skill Training</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => setView(ViewState.MARKETPLACE)}>Marketplace Onboarding</li>
               </ul>
             </div>
 
