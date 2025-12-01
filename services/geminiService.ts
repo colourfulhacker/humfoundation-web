@@ -1,6 +1,15 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { QuizQuestion } from "../types";
 
+// Ensure process.env is typed for TypeScript in this file
+declare const process: {
+  env: {
+    API_KEY: string;
+  };
+};
+
+// Initialize AI directly as per guidelines. 
+// Assume process.env.API_KEY is pre-configured and valid.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const generateQuizQuestions = async (topic: string): Promise<QuizQuestion[]> => {
@@ -40,7 +49,11 @@ export const generateQuizQuestions = async (topic: string): Promise<QuizQuestion
     throw new Error("Assessment generation failed.");
   } catch (error) {
     console.error("System Error:", error);
-    // Robust fallback for demonstration purposes if API limit is hit
+    return getFallbackQuestions(topic);
+  }
+};
+
+const getFallbackQuestions = (topic: string): QuizQuestion[] => {
     return [
       {
         question: "What is the primary objective of a Business Plan?",
@@ -68,5 +81,4 @@ export const generateQuizQuestions = async (topic: string): Promise<QuizQuestion
         correctAnswer: "To ensure product consistency and safety"
       }
     ];
-  }
-};
+}
