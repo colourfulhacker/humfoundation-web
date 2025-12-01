@@ -1058,20 +1058,20 @@ const App: React.FC = () => {
             <div>
               <h4 className="text-gold-500 font-bold mb-6 uppercase tracking-wider text-sm">Services</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
-                <li>Business Registration</li>
-                <li>Micro-funding</li>
-                <li>Skill Training</li>
-                <li>Marketplace Onboarding</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I want to register my business with Hum Foundation. Please guide me.")}>Business Registration</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I'm interested in micro-funding options. Please provide more information.")}>Micro-funding</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I want to enroll in skill training programs. Please share details.")}>Skill Training</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I want to sell my products on your marketplace. Please help me with onboarding.")}>Marketplace Onboarding</li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-gold-500 font-bold mb-6 uppercase tracking-wider text-sm">Legal</h4>
               <ul className="space-y-3 text-gray-300 text-sm">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Seller Guidelines</li>
-                <li>NGO Transparency</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I'd like to know about your privacy policy.")}>Privacy Policy</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I'd like to know about your terms of service.")}>Terms of Service</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I'd like to know about seller guidelines for the marketplace.")}>Seller Guidelines</li>
+                <li className="hover:text-gold-400 cursor-pointer transition-colors" onClick={() => openWhatsApp("Hi, I'd like to know about NGO transparency and annual reports.")}>NGO Transparency</li>
               </ul>
             </div>
 
