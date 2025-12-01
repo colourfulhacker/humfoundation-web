@@ -4,7 +4,11 @@ export enum ViewState {
   SCST_TRAINING = 'SCST_TRAINING',
   MARKETPLACE = 'MARKETPLACE',
   LMS = 'LMS',
-  CONTACT = 'CONTACT'
+  CONTACT = 'CONTACT',
+  PRIVACY_POLICY = 'PRIVACY_POLICY',
+  TERMS_OF_SERVICE = 'TERMS_OF_SERVICE',
+  SELLER_GUIDELINES = 'SELLER_GUIDELINES',
+  NGO_TRANSPARENCY = 'NGO_TRANSPARENCY'
 }
 
 export interface Product {
@@ -38,7 +42,7 @@ export interface CourseModule {
   description: string;
   duration: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
-  materials?: LearningMaterial[]; 
+  materials?: LearningMaterial[];
 }
 
 export interface LearningMaterial {
