@@ -21,7 +21,14 @@ import {
   Clock,
   Printer,
   MessageCircle,
-  Mail
+  Mail,
+  Shield,
+  Lock,
+  Terminal,
+  Globe,
+  Database,
+  Server,
+  Code
 } from 'lucide-react';
 
 // --- Global Constants ---
@@ -1051,6 +1058,230 @@ const ExamSystemView: React.FC = () => {
   );
 };
 
+// --- Paid Training View ---
+
+const PaidTrainingView: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'syllabus' | 'features'>('syllabus');
+
+  const syllabus = [
+    {
+      title: "Module 1: Introduction to Cyber Security",
+      topics: [
+        "Fundamentals of Information Security",
+        "CIA Triad (Confidentiality, Integrity, Availability)",
+        "Types of Cyber Attacks & Threat Actors",
+        "Legal & Ethical Aspects of Hacking"
+      ]
+    },
+    {
+      title: "Module 2: Networking & Security Basics",
+      topics: [
+        "OSI Model & TCP/IP Protocol Suite",
+        "IP Addressing, Subnetting & Routing",
+        "Ports, Protocols & Services (HTTP, FTP, SSH, DNS)",
+        "Network Devices (Firewalls, Routers, Switches)"
+      ]
+    },
+    {
+      title: "Module 3: Ethical Hacking & Penetration Testing",
+      topics: [
+        "Phases of Hacking (Reconnaissance, Scanning, Gaining Access)",
+        "Vulnerability Assessment vs. Penetration Testing",
+        "System Hacking: Password Cracking & Privilege Escalation",
+        "Social Engineering Attacks"
+      ]
+    },
+    {
+      title: "Module 4: Web Application Security",
+      topics: [
+        "OWASP Top 10 Vulnerabilities",
+        "SQL Injection (SQLi) & Cross-Site Scripting (XSS)",
+        "Session Hijacking & CSRF",
+        "Web Server Security & Hardening"
+      ]
+    },
+    {
+      title: "Module 5: Security Monitoring & Analysis",
+      topics: [
+        "Introduction to SIEM (Security Information and Event Management)",
+        "Log Analysis & Incident Response",
+        "Network Traffic Analysis with Wireshark",
+        "Intrusion Detection & Prevention Systems (IDS/IPS)"
+      ]
+    },
+    {
+      title: "Module 6: Cloud Security & Future Trends",
+      topics: [
+        "Cloud Computing Models (IaaS, PaaS, SaaS)",
+        "Cloud Security Challenges & Best Practices",
+        "IoT Security & Mobile Device Security",
+        "Career Paths in Cyber Security"
+      ]
+    }
+  ];
+
+  return (
+    <div className="animate-fade-in">
+      {/* Hero Section */}
+      <section className="relative bg-royal-900 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-royal-900/80"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-400 text-green-400 text-sm font-mono mb-6 bg-royal-900/50 backdrop-blur-sm">
+              <Terminal size={14} />
+              <span>CYBER SECURITY BOOTCAMP</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+              Secure Your Future in <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Cyber Security</span>
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Master Ethical Hacking, Security Analysis, and Network Defense.
+              Get industry-ready with 100% practical training, global certifications, and placement support.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                onClick={() => openWhatsApp("Hi Hum Foundation, I am interested in the Cyber Security Paid Training Program. Please send me the brochure and enrollment details.")}
+                className="bg-green-600 hover:bg-green-700 text-white border-none"
+              >
+                Enroll Now - ₹10,000 + GST
+              </Button>
+              <Button
+                variant="outline"
+                className="!text-white !border-white hover:!bg-white hover:!text-royal-900"
+                onClick={() => {
+                  const element = document.getElementById('syllabus');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                View Syllabus
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Features Grid */}
+      <section className="py-16 bg-stone-50">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 -mt-24 relative z-20">
+            <div className="bg-white p-8 rounded-xl shadow-xl border-t-4 border-green-500">
+              <div className="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center text-green-700 mb-6">
+                <Globe size={32} />
+              </div>
+              <h3 className="text-xl font-bold text-royal-900 mb-3">Global Certification</h3>
+              <p className="text-gray-600">
+                Earn a globally recognized certificate that validates your skills in ethical hacking and security auditing.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-xl border-t-4 border-blue-500">
+              <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-blue-700 mb-6">
+                <Server size={32} />
+              </div>
+              <h3 className="text-xl font-bold text-royal-900 mb-3">Cloud-Based Labs</h3>
+              <p className="text-gray-600">
+                Get hands-on experience with a TryHackMe subscription. Practice real-world scenarios in a safe environment.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-xl border-t-4 border-purple-500">
+              <div className="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center text-purple-700 mb-6">
+                <Briefcase size={32} />
+              </div>
+              <h3 className="text-xl font-bold text-royal-900 mb-3">Placement Support</h3>
+              <p className="text-gray-600">
+                Dedicated placement assistance with our industrial partners. We help you land your dream job in security.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Syllabus Section */}
+      <section id="syllabus" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-green-600 font-bold tracking-widest uppercase text-sm">Comprehensive Curriculum</span>
+            <h2 className="text-4xl font-serif font-bold text-royal-900 mt-2">Master the Art of Cyber Defense</h2>
+            <div className="h-1 w-24 bg-green-500 mx-auto mt-6"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="space-y-6">
+              {syllabus.slice(0, 3).map((module, idx) => (
+                <div key={idx} className="border border-gray-200 rounded-xl p-6 hover:border-green-400 transition-colors shadow-sm hover:shadow-md">
+                  <h3 className="text-xl font-bold text-royal-900 mb-4 flex items-center gap-3">
+                    <span className="bg-royal-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">{idx + 1}</span>
+                    {module.title}
+                  </h3>
+                  <ul className="space-y-2 pl-11">
+                    {module.topics.map((topic, tIdx) => (
+                      <li key={tIdx} className="text-gray-600 flex items-start gap-2">
+                        <span className="text-green-500 mt-1">•</span> {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-6">
+              {syllabus.slice(3, 6).map((module, idx) => (
+                <div key={idx + 3} className="border border-gray-200 rounded-xl p-6 hover:border-green-400 transition-colors shadow-sm hover:shadow-md">
+                  <h3 className="text-xl font-bold text-royal-900 mb-4 flex items-center gap-3">
+                    <span className="bg-royal-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">{idx + 4}</span>
+                    {module.title}
+                  </h3>
+                  <ul className="space-y-2 pl-11">
+                    {module.topics.map((topic, tIdx) => (
+                      <li key={tIdx} className="text-gray-600 flex items-start gap-2">
+                        <span className="text-green-500 mt-1">•</span> {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing & CTA */}
+      <section className="py-20 bg-royal-900 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Invest in Your Career</h2>
+          <div className="bg-white text-royal-900 max-w-md mx-auto rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase">
+              Limited Seats
+            </div>
+            <h3 className="text-2xl font-bold mb-2">Cyber Security Expert</h3>
+            <p className="text-gray-500 mb-6">Complete Training Program</p>
+            <div className="text-5xl font-bold text-royal-900 mb-2">₹10,000</div>
+            <p className="text-gray-500 text-sm mb-8">+ GST as applicable</p>
+
+            <ul className="text-left space-y-3 mb-8 text-gray-700">
+              <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> 100% Practical Training</li>
+              <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> TryHackMe Labs Subscription</li>
+              <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Global Certification</li>
+              <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Placement Assistance</li>
+              <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Lifetime Access to Materials</li>
+            </ul>
+
+            <Button
+              onClick={() => openWhatsApp("Hi Hum Foundation, I want to enroll in the Cyber Security Course (₹10,000 + GST). Please guide me with payment.")}
+              className="w-full justify-center bg-royal-900 text-white hover:bg-royal-800"
+            >
+              Secure Your Spot Now
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
 // --- Legal Pages ---
 
 const PrivacyPolicyView: React.FC = () => (
@@ -1213,6 +1444,7 @@ const App: React.FC = () => {
           <nav className="hidden md:flex items-center gap-8">
             <button onClick={() => setView(ViewState.BUSINESS_SUPPORT)} className={`text-sm font-medium hover:text-royal-900 transition-colors ${view === ViewState.BUSINESS_SUPPORT ? 'text-royal-900 font-bold' : 'text-gray-600'}`}>Start Business</button>
             <button onClick={() => setView(ViewState.SCST_TRAINING)} className={`text-sm font-medium hover:text-teal-800 transition-colors ${view === ViewState.SCST_TRAINING ? 'text-teal-800 font-bold' : 'text-gray-600'}`}>Training</button>
+            <button onClick={() => setView(ViewState.PAID_TRAINING)} className={`text-sm font-medium hover:text-green-600 transition-colors ${view === ViewState.PAID_TRAINING ? 'text-green-600 font-bold' : 'text-gray-600'}`}>Cyber Security</button>
             <button onClick={() => setView(ViewState.MARKETPLACE)} className={`text-sm font-medium hover:text-royal-900 transition-colors ${view === ViewState.MARKETPLACE ? 'text-royal-900 font-bold' : 'text-gray-600'}`}>Marketplace</button>
             <button onClick={() => setView(ViewState.LMS)} className={`text-sm font-medium hover:text-royal-900 transition-colors ${view === ViewState.LMS ? 'text-royal-900 font-bold' : 'text-gray-600'}`}>Certifications</button>
             <Button onClick={() => setView(ViewState.CONTACT)} variant="primary" className="py-2 px-4 text-sm">Join Us</Button>
@@ -1230,6 +1462,7 @@ const App: React.FC = () => {
             <div className="flex flex-col p-6 space-y-4">
               <button onClick={() => setView(ViewState.BUSINESS_SUPPORT)} className="text-left py-2 font-medium text-gray-700">Start Business</button>
               <button onClick={() => setView(ViewState.SCST_TRAINING)} className="text-left py-2 font-medium text-gray-700">SC/ST Training</button>
+              <button onClick={() => setView(ViewState.PAID_TRAINING)} className="text-left py-2 font-medium text-gray-700">Cyber Security</button>
               <button onClick={() => setView(ViewState.MARKETPLACE)} className="text-left py-2 font-medium text-gray-700">Marketplace</button>
               <button onClick={() => setView(ViewState.LMS)} className="text-left py-2 font-medium text-gray-700">Certifications</button>
               <button onClick={() => setView(ViewState.CONTACT)} className="text-left py-2 font-medium text-royal-900 font-bold">Contact Us</button>
@@ -1243,6 +1476,7 @@ const App: React.FC = () => {
         {view === ViewState.HOME && <HomeView setView={setView} />}
         {view === ViewState.BUSINESS_SUPPORT && <BusinessSupportView />}
         {view === ViewState.SCST_TRAINING && <ScstTrainingView />}
+        {view === ViewState.PAID_TRAINING && <PaidTrainingView />}
         {view === ViewState.MARKETPLACE && <MarketplaceView />}
         {view === ViewState.LMS && <ExamSystemView />}
         {view === ViewState.PRIVACY_POLICY && <PrivacyPolicyView />}
