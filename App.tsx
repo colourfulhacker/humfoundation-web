@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ViewState, Product, QuizQuestion, QuizResult, CourseModule, SyllabusTopic, LearningMaterial } from './types';
-import { generateQuizQuestions } from './services/geminiService';
+import { generateQuizQuestions, generateCyberSecurityExam } from './services/geminiService';
 import {
   ShoppingBag,
   GraduationCap,
@@ -712,7 +712,12 @@ const ExamSystemView: React.FC = () => {
   const initExam = async () => {
     if (!currentModule) return;
     setStep('LOADING_EXAM');
-    const qs = await generateQuizQuestions(currentModule.title);
+    let qs;
+    if (currentModule.id === 'cyber-security-cert') {
+      qs = await generateCyberSecurityExam();
+    } else {
+      qs = await generateQuizQuestions(currentModule.title);
+    }
     setQuestions(qs);
     setAnswers({});
     setStep('EXAM');
@@ -1060,7 +1065,11 @@ const ExamSystemView: React.FC = () => {
 
 // --- Paid Training View ---
 
-const PaidTrainingView: React.FC = () => {
+interface PaidTrainingViewProps {
+  setView: (view: ViewState) => void;
+}
+
+const PaidTrainingView: React.FC<PaidTrainingViewProps> = ({ setView }) => {
   const [activeTab, setActiveTab] = useState<'syllabus' | 'features'>('syllabus');
 
   const syllabus = [
@@ -1159,6 +1168,13 @@ const PaidTrainingView: React.FC = () => {
                 }}
               >
                 View Syllabus
+              </Button>
+              <Button
+                variant="secondary"
+                className="bg-white text-royal-900 hover:bg-gray-100 border-none"
+                onClick={() => setView(ViewState.LMS)}
+              >
+                Take Certification Exam
               </Button>
             </div>
           </div>
@@ -1476,7 +1492,7 @@ const App: React.FC = () => {
         {view === ViewState.HOME && <HomeView setView={setView} />}
         {view === ViewState.BUSINESS_SUPPORT && <BusinessSupportView />}
         {view === ViewState.SCST_TRAINING && <ScstTrainingView />}
-        {view === ViewState.PAID_TRAINING && <PaidTrainingView />}
+        {view === ViewState.PAID_TRAINING && <PaidTrainingView setView={setView} />}
         {view === ViewState.MARKETPLACE && <MarketplaceView />}
         {view === ViewState.LMS && <ExamSystemView />}
         {view === ViewState.PRIVACY_POLICY && <PrivacyPolicyView />}

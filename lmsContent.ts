@@ -1,17 +1,17 @@
 import { CourseModule } from './types';
 
 export const LMS_MODULES: CourseModule[] = [
-    {
-        id: 'm1',
-        title: 'Entrepreneurship Basics',
-        description: 'Legal structures, business plans, and funding.',
-        duration: '4 Hours',
-        level: 'Beginner',
-        materials: [
-            {
-                type: 'text',
-                title: 'Lesson 1: Welcome to Entrepreneurship',
-                content: `**Introduction to Entrepreneurship**
+   {
+      id: 'm1',
+      title: 'Entrepreneurship Basics',
+      description: 'Legal structures, business plans, and funding.',
+      duration: '4 Hours',
+      level: 'Beginner',
+      materials: [
+         {
+            type: 'text',
+            title: 'Lesson 1: Welcome to Entrepreneurship',
+            content: `**Introduction to Entrepreneurship**
 
 Entrepreneurship is the journey of creating and building a business from an idea. It's about identifying opportunities, taking calculated risks, and creating value for customers.
 
@@ -44,7 +44,7 @@ Starting a business involves several stages:
 - From 9-to-5 to 24/7: Your business is always on your mind
 
 **Remember**: Every successful business started with someone who believed in their idea and took action. The difference between dreamers and entrepreneurs is execution.`,
-                contentHi: `**उद्यमिता का परिचय**
+            contentHi: `**उद्यमिता का परिचय**
 
 उद्यमिता एक विचार से व्यवसाय बनाने और विकसित करने की यात्रा है। यह अवसरों की पहचान करने, गणना किए गए जोखिम लेने और ग्राहकों के लिए मूल्य बनाने के बारे में है।
 
@@ -77,7 +77,7 @@ Starting a business involves several stages:
 - 9-से-5 से 24/7 तक: आपका व्यवसाय हमेशा आपके दिमाग में है
 
 **याद रखें**: हर सफल व्यवसाय किसी ऐसे व्यक्ति के साथ शुरू हुआ जो अपने विचार में विश्वास करता था और कार्रवाई करता था। सपने देखने वालों और उद्यमियों के बीच का अंतर निष्पादन है।`,
-                contentBn: `**উদ্যোক্তার পরিচয**
+            contentBn: `**উদ্যোক্তার পরিচয**
 
 উদ্যোক্তা হল একটি ধারণা থেকে ব্যবসা তৈরি এবং গড়ে তোলার যাত্রা। এটি সুযোগ চিহ্নিত করা, গণনাকৃত ঝুঁকি নেওয়া এবং গ্রাহকদের জন্য মূল্য তৈরি করার বিষয়ে।
 
@@ -110,11 +110,11 @@ Starting a business involves several stages:
 - 9-থেকে-5 থেকে 24/7: আপনার ব্যবসা সর্বদা আপনার মনে থাকে
 
 **মনে রাখবেন**: প্রতিটি সফল ব্যবসা এমন কারো সাথে শুরু হয়েছিল যিনি তাদের ধারণায় বিশ্বাস করেছিলেন এবং পদক্ষেপ নিয়েছিলেন। স্বপ্নদর্শী এবং উদ্যোক্তাদের মধ্যে পার্থক্য হল সম্পাদন।`
-            },
-            {
-                type: 'text',
-                title: 'Lesson 2: The Entrepreneurial Mindset',
-                content: `**Developing the Right Mindset**
+         },
+         {
+            type: 'text',
+            title: 'Lesson 2: The Entrepreneurial Mindset',
+            content: `**Developing the Right Mindset**
 
 Success in entrepreneurship starts with the right mindset. It's not just about skills or capital - it's about how you think and approach challenges.
 
@@ -182,7 +182,7 @@ Common entrepreneurial fears:
 2. List 3 ways you can mitigate that fear
 3. Identify one skill you need to develop this month
 4. Find one mentor or entrepreneur to learn from`,
-                contentHi: `**सही मानसिकता विकसित करना**
+            contentHi: `**सही मानसिकता विकसित करना**
 
 उद्यमिता में सफलता सही मानसिकता से शुरू होती है। यह केवल कौशल या पूंजी के बारे में नहीं है - यह इस बारे में है कि आप कैसे सोचते हैं और चुनौतियों का सामना करते हैं।
 
@@ -250,7 +250,7 @@ Common entrepreneurial fears:
 2. 3 तरीके सूचीबद्ध करें जिनसे आप उस डर को कम कर सकते हैं
 3. एक कौशल की पहचान करें जिसे आपको इस महीने विकसित करने की आवश्यकता है
 4. सीखने के लिए एक सलाहकार या उद्यमी खोजें`,
-                contentBn: `**সঠিক মানসিকতা বিকাশ**
+            contentBn: `**সঠিক মানসিকতা বিকাশ**
 
 উদ্যোক্তায় সাফল্য সঠিক মানসিকতা দিয়ে শুরু হয়। এটি শুধুমাত্র দক্ষতা বা মূলধন সম্পর্কে নয় - এটি আপনি কীভাবে চিন্তা করেন এবং চ্যালেঞ্জগুলির সাথে যোগাযোগ করেন সে সম্পর্কে।
 
@@ -318,9 +318,156 @@ Common entrepreneurial fears:
 2. 3টি উপায় তালিকাভুক্ত করুন যা দিয়ে আপনি সেই ভয় কমাতে পারেন
 3. একটি দক্ষতা চিহ্নিত করুন যা আপনাকে এই মাসে বিকাশ করতে হবে
 4. শেখার জন্য একজন পরামর্শদাতা বা উদ্যোক্তা খুঁজুন`
-            },
-            // Continue with more lessons...
-            { type: 'pdf', title: 'Business Plan Template.pdf' }
-        ]
-    }
+         },
+         // Continue with more lessons...
+         { type: 'pdf', title: 'Business Plan Template.pdf' }
+      ]
+   },
+   {
+      id: 'cyber-security-cert',
+      title: 'Cyber Security & Ethical Hacking',
+      description: 'Advanced certification in Network Defense, Ethical Hacking, and Security Analysis.',
+      duration: '6 Months',
+      level: 'Advanced',
+      materials: [
+         {
+            type: 'text',
+            title: 'Program Syllabus & Exam Guide',
+            content: `**Cyber Security Certification Program**
+
+This comprehensive program covers the essential skills required for a career in Cyber Security.
+
+**Module 1: Introduction to Cyber Security**
+- Fundamentals of Information Security
+- CIA Triad (Confidentiality, Integrity, Availability)
+- Types of Cyber Attacks & Threat Actors
+- Legal & Ethical Aspects of Hacking
+
+**Module 2: Networking & Security Basics**
+- OSI Model & TCP/IP Protocol Suite
+- IP Addressing, Subnetting & Routing
+- Ports, Protocols & Services (HTTP, FTP, SSH, DNS)
+- Network Devices (Firewalls, Routers, Switches)
+
+**Module 3: Ethical Hacking & Penetration Testing**
+- Phases of Hacking (Reconnaissance, Scanning, Gaining Access)
+- Vulnerability Assessment vs. Penetration Testing
+- System Hacking: Password Cracking & Privilege Escalation
+- Social Engineering Attacks
+
+**Module 4: Web Application Security**
+- OWASP Top 10 Vulnerabilities
+- SQL Injection (SQLi) & Cross-Site Scripting (XSS)
+- Session Hijacking & CSRF
+- Web Server Security & Hardening
+
+**Module 5: Security Monitoring & Analysis**
+- Introduction to SIEM
+- Log Analysis & Incident Response
+- Network Traffic Analysis with Wireshark
+- Intrusion Detection & Prevention Systems (IDS/IPS)
+
+**Module 6: Cloud Security & Future Trends**
+- Cloud Computing Models (IaaS, PaaS, SaaS)
+- Cloud Security Challenges & Best Practices
+- IoT Security & Mobile Device Security
+
+**Certification Exam Information**
+- **Format**: 20 Scenario-based Multiple Choice Questions
+- **Passing Score**: 70%
+- **Time Limit**: 45 Minutes
+- **Certificate**: Globally valid certificate upon passing.
+
+**Note**: This is a rigorous exam designed to test your practical understanding. Please ensure you have completed the training before attempting.`,
+            contentHi: `**साइबर सुरक्षा प्रमाणन कार्यक्रम**
+
+यह व्यापक कार्यक्रम साइबर सुरक्षा में करियर के लिए आवश्यक आवश्यक कौशल को शामिल करता है।
+
+**मॉड्यूल 1: साइबर सुरक्षा का परिचय**
+- सूचना सुरक्षा के मूल सिद्धांत
+- सीआईए ट्रायड (गोपनीयता, अखंडता, उपलब्धता)
+- साइबर हमलों और खतरे के अभिनेताओं के प्रकार
+- हैकिंग के कानूनी और नैतिक पहलू
+
+**मॉड्यूल 2: नेटवर्किंग और सुरक्षा मूल बातें**
+- ओएसआई मॉडल और टीसीपी/आईपी प्रोटोकॉल सूट
+- आईपी एड्रेसिंग, सबनेटिंग और रूटिंग
+- पोर्ट, प्रोटोकॉल और सेवाएं (HTTP, FTP, SSH, DNS)
+- नेटवर्क डिवाइस (फायरवॉल, राउटर, स्विच)
+
+**मॉड्यूल 3: एथिकल हैकिंग और पेनेट्रेशन टेस्टिंग**
+- हैकिंग के चरण (टोही, स्कैनिंग, पहुंच प्राप्त करना)
+- भेद्यता मूल्यांकन बनाम पेनेट्रेशन टेस्टिंग
+- सिस्टम हैकिंग: पासवर्ड क्रैकिंग और विशेषाधिकार वृद्धि
+- सोशल इंजीनियरिंग हमले
+
+**मॉड्यूल 4: वेब एप्लिकेशन सुरक्षा**
+- OWASP शीर्ष 10 कमजोरियां
+- SQL इंजेक्शन (SQLi) और क्रॉस-साइट स्क्रिप्टिंग (XSS)
+- सत्र अपहरण और CSRF
+- वेब सर्वर सुरक्षा और सख्त करना
+
+**मॉड्यूल 5: सुरक्षा निगरानी और विश्लेषण**
+- SIEM का परिचय
+- लॉग विश्लेषण और घटना प्रतिक्रिया
+- वायरशार्क के साथ नेटवर्क ट्रैफ़िक विश्लेषण
+- घुसपैठ का पता लगाने और रोकथाम प्रणाली (IDS/IPS)
+
+**मॉड्यूल 6: क्लाउड सुरक्षा और भविष्य के रुझान**
+- क्लाउड कंप्यूटिंग मॉडल (IaaS, PaaS, SaaS)
+- क्लाउड सुरक्षा चुनौतियां और सर्वोत्तम प्रथाएं
+- IoT सुरक्षा और मोबाइल डिवाइस सुरक्षा
+
+**परीक्षा जानकारी**
+- **प्रारूप**: 20 परिदृश्य-आधारित बहुविकल्पीय प्रश्न
+- **उत्तीर्ण अंक**: 70%
+- **समय सीमा**: 45 मिनट
+- **प्रमाणपत्र**: उत्तीर्ण होने पर विश्व स्तर पर मान्य प्रमाण पत्र।`,
+            contentBn: `**সাইবার নিরাপত্তা সার্টিফিকেশন প্রোগ্রাম**
+
+এই ব্যাপক প্রোগ্রামটি সাইবার নিরাপত্তায় ক্যারিয়ারের জন্য প্রয়োজনীয় দক্ষতাগুলি কভার করে।
+
+**মডিউল 1: সাইবার নিরাপত্তার ভূমিকা**
+- তথ্য নিরাপত্তার মৌলিক বিষয়
+- সিআইএ ট্রায়াড (গোপনীয়তা, সততা, প্রাপ্যতা)
+- সাইবার আক্রমণ এবং হুমকি অভিনেতাদের প্রকার
+- হ্যাকিংয়ের আইনি ও নৈতিক দিক
+
+**মডিউল 2: নেটওয়ার্কিং এবং নিরাপত্তা বেসিক**
+- ওএসআই মডেল এবং টিসিপি/আইপি প্রোটোকল স্যুট
+- আইপি অ্যাড্রেসিং, সাবনেটিং এবং রাউটিং
+- পোর্ট, প্রোটোকল এবং পরিষেবা (HTTP, FTP, SSH, DNS)
+- নেটওয়ার্ক ডিভাইস (ফায়ারওয়াল, রাউটার, সুইচ)
+
+**মডিউল 3: এথিক্যাল হ্যাকিং এবং পেনিট্রেশন টেস্টিং**
+- হ্যাকিংয়ের পর্যায় (রেকনেসান্স, স্ক্যানিং, অ্যাক্সেস লাভ)
+- দুর্বলতা মূল্যায়ন বনাম পেনিট্রেশন টেস্টিং
+- সিস্টেম হ্যাকিং: পাসওয়ার্ড ক্র্যাকিং এবং প্রিভিলেজ এসকেলেশন
+- সোশ্যাল ইঞ্জিনিয়ারিং অ্যাটাক
+
+**মডিউল 4: ওয়েব অ্যাপ্লিকেশন নিরাপত্তা**
+- OWASP শীর্ষ 10 দুর্বলতা
+- এসকিউএল ইনজেকশন (SQLi) এবং ক্রস-সাইট স্ক্রিপ্টিং (XSS)
+- সেশন হাইjacking এবং CSRF
+- ওয়েব সার্ভার নিরাপত্তা এবং হার্ডেনিং
+
+**মডিউল 5: নিরাপত্তা পর্যবেক্ষণ এবং বিশ্লেষণ**
+- SIEM এর ভূমিকা
+- লগ বিশ্লেষণ এবং ঘটনা প্রতিক্রিয়া
+- ওয়্যারশার্কের সাথে নেটওয়ার্ক ট্রাফিক বিশ্লেষণ
+- অনুপ্রবেশ সনাক্তকরণ এবং প্রতিরোধ ব্যবস্থা (IDS/IPS)
+
+**মডিউল 6: ক্লাউড নিরাপত্তা এবং ভবিষ্যতের প্রবণতা**
+- ক্লাউড কম্পিউটিং মডেল (IaaS, PaaS, SaaS)
+- ক্লাউড নিরাপত্তা চ্যালেঞ্জ এবং সর্বোত্তম অনুশীলন
+- আইওটি নিরাপত্তা এবং মোবাইল ডিভাইস নিরাপত্তা
+
+**পরীক্ষার তথ্য**
+- **ফরম্যাট**: 20টি দৃশ্যকল্প-ভিত্তিক মাল্টিপল চয়েস প্রশ্ন
+- **পাসিং স্কোর**: 70%
+- **সময়সীমা**: 45 মিনিট
+- **সার্টিফিকেট**: পাস করার পর বিশ্বব্যাপী বৈধ সার্টিফিকেট।`
+         }
+      ]
+   }
 ];
