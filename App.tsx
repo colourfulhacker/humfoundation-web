@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ViewState, Product, QuizQuestion, QuizResult, CourseModule, SyllabusTopic, LearningMaterial } from './types';
+import ESDPView from './ESDPView';
+import SEO from './SEO';
 import { generateQuizQuestions, generateCyberSecurityExam } from './services/geminiService';
 import { LMS_MODULES } from './lmsContent';
 import {
@@ -189,6 +191,10 @@ const SectionTitle: React.FC<{ title: string; subtitle?: string; centered?: bool
 const HomeView: React.FC<{ setView: (v: ViewState) => void }> = ({ setView }) => {
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Hum Foundation | Empowerment Ecosystem"
+        description="Empowering women entrepreneurs and SC/ST communities through business support, skill training, and marketplace access."
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-royal-900">
         <div className="absolute inset-0 opacity-40">
@@ -284,12 +290,58 @@ const HomeView: React.FC<{ setView: (v: ViewState) => void }> = ({ setView }) =>
           </div>
         </div>
       </section>
+
+      {/* ESDP Promo Section */}
+      <section className="py-20 bg-gradient-to-r from-indigo-900 to-purple-900 text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="md:w-1/2 space-y-6">
+              <span className="inline-block px-4 py-1.5 bg-yellow-400 text-yellow-900 font-bold rounded-full text-xs uppercase tracking-widest">Govt. of India Initiative</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight">Master Entrepreneurship Skills <br /> <span className="text-yellow-400">in 6 Weeks</span></h2>
+              <p className="text-xl text-indigo-100">
+                Join the comprehensive ESDP program organized by Central Tool Room & Training Centre (CTTC), Kolkata.
+                Full offline training at Networld Infotech, Konnagar.
+              </p>
+              <div className="flex gap-4 pt-4">
+                <Button onClick={() => setView(ViewState.ESDP_PROGRAM)} className="!bg-white !text-indigo-900 hover:!bg-gray-100 border-none px-8 py-3 text-lg">
+                  View Program Details
+                </Button>
+              </div>
+            </div>
+            <div className="md:w-5/12 hidden md:block">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <ul className="space-y-4">
+                  {[
+                    "Ministry of MSME Supported",
+                    "Government Certification",
+                    "100% Practical Training",
+                    "Eligibility: 10th Pass",
+                    "Limited Seats Available"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-lg font-medium">
+                      <div className="w-8 h-8 rounded-full bg-yellow-400 text-yellow-900 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle size={16} fill="currentColor" />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
 const BusinessSupportView: React.FC = () => (
   <div className="container mx-auto px-6 py-20 animate-fade-in">
+    <SEO
+      title="Business Support | Hum Foundation"
+      description="End-to-end support for women entrepreneurs: MSME registration, branding, funding assistance, and mentorship."
+    />
     <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
       <div>
         <h2 className="text-4xl md:text-6xl font-serif font-bold text-royal-900 mb-6">From Idea to Empire</h2>
@@ -403,6 +455,10 @@ const ScstTrainingView: React.FC = () => {
 
   return (
     <div className="bg-teal-900 text-white min-h-screen py-20 animate-fade-in">
+      <SEO
+        title="SC/ST Skill Training | Hum Foundation"
+        description="Government-certified skill development programs for SC/ST communities: Industrial Sewing, Computer Proficiency, Handicrafts, and more."
+      />
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-teal-300 tracking-widest uppercase font-semibold text-sm">Government Partnership</span>
@@ -513,6 +569,10 @@ const MarketplaceView: React.FC = () => {
 
   return (
     <div className="bg-stone-50 min-h-screen py-12 animate-fade-in">
+      <SEO
+        title="Hum Marketplace | Handcrafted & Authentic"
+        description="Shop authentic handmade products from women artisans: Terracotta, Kantha Stitch, Jute crafts, and more."
+      />
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>
@@ -560,8 +620,10 @@ const MarketplaceView: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map(product => (
             <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100">
-              <div className="relative overflow-hidden h-64">
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+              <div className="relative overflow-hidden p-6 bg-stone-100 flex items-center justify-center">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-royal-900 shadow-sm">
+                  <ShoppingBag size={24} />
+                </div>
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <button
                     onClick={() => addToCart(product)}
@@ -586,20 +648,57 @@ const MarketplaceView: React.FC = () => {
     </div>
   );
 };
-
 // --- LMS & Exam Components ---
 
 const ExamSystemView: React.FC = () => {
   // Navigation states
-  const [step, setStep] = useState<'DASHBOARD' | 'LEARNING' | 'LOADING_EXAM' | 'EXAM' | 'RESULT'>('DASHBOARD');
-
-  // Data states
+  const [step, setStep] = useState<'HOME' | 'MODULES' | 'LEARNING' | 'REGISTRATION' | 'LOADING_EXAM' | 'EXAM' | 'CERTIFICATE'>('HOME');
+  const [userName, setUserName] = useState('');
   const [currentModule, setCurrentModule] = useState<CourseModule | null>(null);
+  const [currentLesson, setCurrentLesson] = useState<number>(0);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-  const [answers, setAnswers] = useState<{ [key: number]: string }>({});
-  const [result, setResult] = useState<QuizResult | null>(null);
-  const [candidateName, setCandidateName] = useState("");
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [score, setScore] = useState(0);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [warningCount, setWarningCount] = useState(0); // Anti-cheat warning count
+  const [showTranslations, setShowTranslations] = useState<Record<string, boolean>>({});
   const [language, setLanguage] = useState<'en' | 'hi' | 'bn'>('en');
+  const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
+
+  const certificateRef = useRef<HTMLDivElement>(null);
+
+  // Auto-start ESDP Exam Effect
+  useEffect(() => {
+    const shouldStart = localStorage.getItem('START_ESDP_EXAM');
+    if (shouldStart === 'true') {
+      localStorage.removeItem('START_ESDP_EXAM');
+      const esdpModule = LMS_MODULES.find(m => m.id === 'esdp-program');
+      if (esdpModule) {
+        setCurrentModule(esdpModule);
+        setStep('LOADING_EXAM');
+
+        // Generate exam immediately
+        setTimeout(async () => {
+          try {
+            // ESDP specific topics - Request 20 Questions
+            const generatedQuestions = await generateQuizQuestions("Entrepreneurship, Business Planning, Marketing, and Financial Management", 20);
+            setQuestions(generatedQuestions);
+            setAnswers({});
+            setWarningCount(0); // Reset warnings
+            setTimeLeft(900);
+            setStep('REGISTRATION'); // Force regression to get name if missing, or we can handle it earlier.
+            // Actually, for auto-start, we might not have the name.
+            // Let's modify: if no name, go to REGISTRATION, else LOADING_EXAM
+            setStep(userName ? 'LOADING_EXAM' : 'REGISTRATION');
+          } catch (error) {
+            console.error("Failed to load ESDP exam", error);
+            alert("Could not load exam. Please try again.");
+            setStep('HOME');
+          }
+        }, 1500);
+      }
+    }
+  }, []);
 
   // Helper function to get content in selected language
   const getContent = (material: LearningMaterial): string => {
@@ -609,75 +708,142 @@ const ExamSystemView: React.FC = () => {
   };
 
   const startLearning = (module: CourseModule) => {
-    if (!candidateName.trim()) {
-      alert("Please enter your name to proceed.");
-      return;
-    }
     setCurrentModule(module);
     setStep('LEARNING');
+    window.scrollTo(0, 0);
   };
 
   const initExam = async () => {
     if (!currentModule) return;
-    setStep('LOADING_EXAM');
-    let qs;
-    if (currentModule.id === 'cyber-security-cert') {
-      qs = await generateCyberSecurityExam();
-    } else {
-      qs = await generateQuizQuestions(currentModule.title);
+    if (!userName) {
+      setStep('REGISTRATION');
+      return;
     }
-    setQuestions(qs);
-    setAnswers({});
-    setStep('EXAM');
+    setStep('LOADING_EXAM');
+
+    // Artificial delay for "generating" questions
+    // In a real app, this would call the AI API
+    setTimeout(async () => {
+      try {
+        let generatedQuestions;
+        if (currentModule.id === 'cyber-security-cert') {
+          generatedQuestions = await generateCyberSecurityExam();
+        } else if (currentModule.id === 'esdp-program') {
+          // Generate customized business questions for ESDP - 20 Questions
+          generatedQuestions = await generateQuizQuestions("Entrepreneurship, Business Planning, Marketing, and Financial Management", 20);
+        } else {
+          generatedQuestions = await generateQuizQuestions(currentModule.title);
+        }
+        setQuestions(generatedQuestions);
+        setAnswers({});
+        setWarningCount(0); // Reset warnings
+        setTimeLeft(900); // Reset timer to 15 minutes
+        setStep('EXAM');
+      } catch (error) {
+        console.error("Failed to load exam", error);
+        alert("Could not load exam. Please try again.");
+        setStep('LEARNING');
+      }
+    }, 1500);
+  };
+
+  // Timer Effect
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (step === 'EXAM' && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            submitExam();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [step, timeLeft]);
+
+  // --- Anti-Cheat Mechanisms ---
+  useEffect(() => {
+    if (step !== 'EXAM') return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setWarningCount(prev => {
+          const newCount = prev + 1;
+          if (newCount >= 3) {
+            alert("Violation Detected: You have switched tabs too many times. The exam will now auto-submit.");
+            submitExam();
+            return newCount;
+          }
+          alert(`Warning ${newCount}/3: Please do not switch tabs during the exam. Continued violation will result in disqualification.`);
+          return newCount;
+        });
+      }
+    };
+
+    const preventCopyPaste = (e: Event) => {
+      e.preventDefault();
+      return false;
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    document.addEventListener("contextmenu", preventCopyPaste);
+    document.addEventListener("copy", preventCopyPaste);
+    document.addEventListener("cut", preventCopyPaste);
+    document.addEventListener("paste", preventCopyPaste);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      document.removeEventListener("contextmenu", preventCopyPaste);
+      document.removeEventListener("copy", preventCopyPaste);
+      document.removeEventListener("cut", preventCopyPaste);
+      document.removeEventListener("paste", preventCopyPaste);
+    };
+  }, [step]); // Re-bind if step changes to EXAM
+
+  // Format Time
+  const formatTime = (seconds: number) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const answerQuestion = (idx: number, option: string) => {
+    setAnswers({ ...answers, [idx]: option });
   };
 
   const submitExam = () => {
-    let score = 0;
+    let newScore = 0;
     questions.forEach((q, idx) => {
-      if (answers[idx] === q.correctAnswer) score++;
+      if (answers[idx] === q.correctAnswer) {
+        newScore++;
+      }
     });
-
-    const passed = score >= Math.ceil(questions.length * 0.6); // 60% passing
-    const dateStr = new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
-    const certId = `HF-${Date.now().toString().slice(-6)}-${Math.floor(Math.random() * 1000)}`;
-
-    setResult({
-      score,
-      total: questions.length,
-      passed,
-      topic: currentModule?.title || "Training",
-      candidateName,
-      date: dateStr,
-      certificateId: certId
-    });
-    setStep('RESULT');
+    setScore(newScore);
+    const percentage = (newScore / questions.length) * 100;
+    setStep('CERTIFICATE');
+    if (percentage >= 60) {
+      setShowConfetti(true);
+    }
   };
 
-  const printCertificate = () => {
+  const downloadCertificate = () => {
     window.print();
   };
 
   return (
     <div className="min-h-screen bg-stone-50 py-12 animate-fade-in">
+      <SEO
+        title="Learning Certification | Hum Foundation"
+        description="Take online certification exams for vocational skills and earn a verifiable certificate from Hum Foundation."
+      />
       <div className="container mx-auto px-6 max-w-5xl">
 
-        {step === 'DASHBOARD' && (
+        {step === 'HOME' && (
           <div>
             <SectionTitle title="Learning & Certification" subtitle="Complete modules and earn verifiable certificates." centered={false} />
-
-            <div className="bg-white p-8 rounded-xl shadow-md mb-12 border border-gray-200">
-              <h3 className="text-xl font-bold mb-4">Student Profile</h3>
-              <div className="max-w-md">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Full Name (for Certificate)</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-royal-900 outline-none transition-shadow"
-                  placeholder="e.g., Anjali Sharma"
-                  value={candidateName}
-                  onChange={(e) => setCandidateName(e.target.value)}
-                />
-              </div>
-            </div>
 
             {/* Language Selector */}
             <div className="bg-white p-6 rounded-xl shadow-md mb-8 border border-gray-200">
@@ -727,7 +893,7 @@ const ExamSystemView: React.FC = () => {
                       <span className="flex items-center gap-1"><BookOpen size={14} /> {module.materials?.length || 3} Lessons</span>
                     </div>
                   </div>
-                  <Button onClick={() => startLearning(module)} disabled={!candidateName} className="whitespace-nowrap">
+                  <Button onClick={() => startLearning(module)} className="whitespace-nowrap">
                     Start Learning <ChevronRight size={18} />
                   </Button>
                 </div>
@@ -738,7 +904,7 @@ const ExamSystemView: React.FC = () => {
 
         {step === 'LEARNING' && currentModule && (
           <div className="animate-fade-in">
-            <button onClick={() => setStep('DASHBOARD')} className="text-gray-500 hover:text-royal-900 mb-6 flex items-center gap-2 text-sm font-medium">
+            <button onClick={() => setStep('HOME')} className="text-gray-500 hover:text-royal-900 mb-6 flex items-center gap-2 text-sm font-medium">
               <ArrowRight className="rotate-180" size={16} /> Back to Dashboard
             </button>
 
@@ -761,8 +927,31 @@ const ExamSystemView: React.FC = () => {
                           {material.type === 'video' ? <PlayCircle size={20} /> : material.type === 'pdf' ? <Download size={20} /> : <FileText size={20} />}
                         </div>
                         <div className="flex-grow">
-                          <h4 className="font-bold text-gray-800 mb-1">{material.title}</h4>
-                          {material.type === 'text' && <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">{getContent(material)}</p>}
+                          <div className="flex justify-between items-start">
+                            <h4 className="font-bold text-gray-800 mb-1">{material.title}</h4>
+                            {(material.contentHi || material.contentBn) && (
+                              <button
+                                onClick={() => setShowTranslations(prev => ({ ...prev, [idx.toString()]: !prev[idx.toString()] }))}
+                                className="text-xs text-royal-900 underline"
+                              >
+                                {showTranslations[idx.toString()] ? 'Hide Translation' : 'Show Translation'}
+                              </button>
+                            )}
+                          </div>
+
+                          {material.type === 'text' && (
+                            <div>
+                              <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">{material.content}</p>
+                              {showTranslations[idx.toString()] && (
+                                <div className="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-100">
+                                  <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
+                                    {getContent(material)}
+                                  </p>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
                           {material.type === 'video' && (
                             <div className="mt-2 bg-black rounded-lg overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
                               <iframe
@@ -803,6 +992,34 @@ const ExamSystemView: React.FC = () => {
           </div>
         )}
 
+        {step === 'REGISTRATION' && (
+          <div className="flex flex-col items-center justify-center py-20 animate-fade-in max-w-md mx-auto">
+            <SectionTitle title="Candidate Registration" subtitle="Enter your details for the certificate." />
+            <div className="bg-white p-8 rounded-xl shadow-lg w-full">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+                Full Name (as it should appear on Certificate)
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-royal-900 mb-6"
+                id="username"
+                type="text"
+                placeholder="e.g. Ananya Sharma"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+              <Button
+                onClick={() => {
+                  if (userName.trim().length > 0) initExam();
+                  else alert("Please enter your name.");
+                }}
+                className="w-full justify-center"
+              >
+                Start Assessment <ArrowRight size={16} />
+              </Button>
+            </div>
+          </div>
+        )}
+
         {step === 'LOADING_EXAM' && (
           <div className="flex flex-col items-center justify-center py-32">
             <div className="w-16 h-16 border-4 border-royal-900 border-t-gold-500 rounded-full animate-spin mb-6"></div>
@@ -818,7 +1035,9 @@ const ExamSystemView: React.FC = () => {
                 <h3 className="text-2xl font-serif font-bold text-royal-900">{currentModule?.title}</h3>
                 <p className="text-sm text-gray-500">Final Assessment</p>
               </div>
-              <span className="text-sm bg-red-50 text-red-700 px-3 py-1 rounded-full font-mono font-medium border border-red-100">Time: 14:22</span>
+              <span className={`text-sm px-3 py-1 rounded-full font-mono font-medium border ${timeLeft < 60 ? 'bg-red-100 text-red-700 border-red-200 animate-pulse' : 'bg-blue-50 text-blue-700 border-blue-100'}`}>
+                Time: {formatTime(timeLeft)}
+              </span>
             </div>
 
             <div className="space-y-10">
@@ -838,7 +1057,7 @@ const ExamSystemView: React.FC = () => {
                           name={`q-${idx}`}
                           className="hidden"
                           value={opt}
-                          onChange={() => setAnswers({ ...answers, [idx]: opt })}
+                          onChange={() => answerQuestion(idx, opt)}
                           checked={answers[idx] === opt}
                         />
                         <span className={`ml-3 ${answers[idx] === opt ? 'text-royal-900 font-medium' : 'text-gray-700'}`}>{opt}</span>
@@ -858,114 +1077,128 @@ const ExamSystemView: React.FC = () => {
           </div>
         )}
 
-        {step === 'RESULT' && result && (
-          <div className="text-center animate-fade-in">
-            {/* Screen View */}
-            <div className="mb-12 print:hidden">
-              {result.passed ? (
-                <div className="w-24 h-24 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                  <Award size={56} />
-                </div>
-              ) : (
-                <div className="w-24 h-24 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                  <X size={56} />
-                </div>
-              )}
-              <h2 className="text-4xl font-serif font-bold mb-4 text-gray-900">
-                {result.passed ? "Assessment Passed!" : "Please Try Again"}
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                You scored <span className="font-bold text-royal-900">{result.score}/{result.total}</span> ({Math.round((result.score / result.total) * 100)}%)
-              </p>
+        {step === 'CERTIFICATE' && (
+          <div className="animate-fade-in text-center">
+            {showConfetti && <div className="fixed inset-0 pointer-events-none z-50 flex justify-center items-start"><div className="confetti-piece"></div></div>}
 
-              {result.passed ? (
-                <div className="flex justify-center gap-4">
-                  <Button onClick={printCertificate} variant="secondary">
-                    <Printer size={18} /> Download Certificate
-                  </Button>
-                  <Button onClick={() => setStep('DASHBOARD')} variant="outline">Back to Courses</Button>
-                </div>
+            <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto mb-12 print:hidden">
+              {score >= (questions.length * 0.6) ? (
+                <>
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-600">
+                    <Award size={40} />
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Congratulations!</h2>
+                  <p className="text-gray-600 mb-8">You passed the exam with a score of <span className="font-bold text-green-600">{Math.round((score / questions.length) * 100)}%</span></p>
+                  <div className="flex justify-center gap-4">
+                    <Button onClick={downloadCertificate}>Download Certificate</Button>
+                    <Button variant="outline" onClick={() => setStep('HOME')}>Back to Courses</Button>
+                  </div>
+                </>
               ) : (
-                <Button onClick={() => initExam()}>Retake Exam</Button>
+                <>
+                  <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 text-red-600">
+                    <X size={40} />
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Exam Failed</h2>
+                  <p className="text-gray-600 mb-8">You scored {Math.round((score / questions.length) * 100)}%. You need 60% to pass.</p>
+                  <Button onClick={initExam}>Retake Exam</Button>
+                </>
               )}
             </div>
 
-            {/* Certificate View (Visible on Screen & Print) */}
-            {result.passed && (
-              <div className="mt-12 print:mt-0">
-                <div className="w-full max-w-4xl mx-auto bg-white p-4 md:p-8 relative shadow-2xl print:shadow-none print:w-[1123px] print:h-[794px] print:max-w-none" id="certificate-container">
-                  {/* Border Frame */}
-                  <div className="h-full w-full border-8 md:border-[20px] border-royal-900 relative p-2">
-                    <div className="h-full w-full border-2 md:border-[4px] border-gold-500 relative flex flex-col p-6 md:p-12 bg-certificate-pattern">
+            {/* Certificate Template */}
+            {score >= (questions.length * 0.6) && (
+              <>
+                <div className="bg-white p-6 md:p-12 rounded-xl shadow-2xl max-w-4xl mx-auto text-center border-8 border-double border-gold-200 relative overflow-hidden mt-12 print:block hidden" ref={certificateRef} id="certificate-container">
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '20px 20px' }}></div>
 
-                      {/* Corner Decorations */}
-                      <div className="absolute top-0 left-0 w-16 h-16 md:w-32 md:h-32 border-t-2 border-l-2 md:border-t-[4px] md:border-l-[4px] border-royal-900 m-1 md:m-2"></div>
-                      <div className="absolute top-0 right-0 w-16 h-16 md:w-32 md:h-32 border-t-2 border-r-2 md:border-t-[4px] md:border-r-[4px] border-royal-900 m-1 md:m-2"></div>
-                      <div className="absolute bottom-0 left-0 w-16 h-16 md:w-32 md:h-32 border-b-2 border-l-2 md:border-b-[4px] md:border-l-[4px] border-royal-900 m-1 md:m-2"></div>
-                      <div className="absolute bottom-0 right-0 w-16 h-16 md:w-32 md:h-32 border-b-2 border-r-2 md:border-b-[4px] md:border-r-[4px] border-royal-900 m-1 md:m-2"></div>
+                  {/* Watermark */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.04]">
+                    <Award size={500} className="text-gray-900" />
+                  </div>
 
-                      {/* Header */}
-                      <div className="text-center mb-6 md:mb-12">
-                        <div className="inline-flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-                          <div className="w-8 h-8 md:w-12 md:h-12 bg-royal-900 text-gold-500 flex items-center justify-center font-serif font-bold text-lg md:text-2xl rounded-tr-xl rounded-bl-xl">H</div>
-                          <h1 className="text-2xl md:text-4xl font-serif font-bold text-royal-900 tracking-wider">HUM FOUNDATION</h1>
+                  <div className="relative z-10">
+                    <div className="w-24 h-24 mx-auto bg-gold-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                      <Award className="w-12 h-12 text-white" />
+                    </div>
+
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-royal-900 mb-2 uppercase tracking-wide">Certificate of Achievement</h2>
+                    <p className="text-gold-600 font-medium tracking-widest uppercase mb-12">This is to certify that</p>
+
+                    <div className="border-b-2 border-gray-300 max-w-2xl mx-auto mb-8 pb-2">
+                      <h3 className="text-3xl md:text-4xl font-writing text-royal-800">{userName || "Candidate Name"}</h3>
+                    </div>
+
+                    <p className="text-gray-600 mb-6 text-lg">
+                      has successfully completed the
+                      {currentModule?.id === 'esdp-program' ? (
+                        <span className="block text-2xl font-bold text-royal-900 mt-2 mb-2">6-Week Entrepreneurship Skill Development Programme (ESDP)</span>
+                      ) : (
+                        <span className="block text-2xl font-bold text-royal-900 mt-2 mb-2">{currentModule?.id === 'cyber-security-cert' ? 'Advanced Cyber Security & Ethical Hacking' : currentModule?.title}</span>
+                      )}
+                      Evaluation with a score of <span className="font-bold text-green-600">{Math.round((score / questions.length) * 100)}%</span>
+                    </p>
+
+                    {currentModule?.id === 'esdp-program' && (
+                      <div className="flex flex-col items-center justify-center mb-8 bg-stone-50 p-4 rounded-lg border border-stone-200">
+                        <p className="text-gray-500 text-sm mb-2 uppercase tracking-wide font-semibold">Supported By</p>
+                        <div className="flex items-center gap-4">
+                          <div className="text-center">
+                            <Award size={32} className="mx-auto text-orange-500 mb-1" />
+                            <span className="text-xs font-bold text-gray-800 block">Ministry of MSME</span>
+                            <span className="text-[10px] text-gray-500">Govt. of India</span>
+                          </div>
+                          <div className="h-8 w-px bg-gray-300"></div>
+                          <div className="text-center">
+                            <Award size={32} className="mx-auto text-blue-600 mb-1" />
+                            <span className="text-xs font-bold text-gray-800 block">CTTC, Kolkata</span>
+                            <span className="text-[10px] text-gray-500">Training Partner</span>
+                          </div>
                         </div>
-                        <h2 className="text-3xl md:text-6xl font-serif font-bold text-gold-600 uppercase tracking-widest mb-1 md:mb-2">Certificate</h2>
-                        <p className="text-sm md:text-xl text-gray-500 uppercase tracking-[0.2em]">Of Completion</p>
+                      </div>
+                    )}
+
+                    <div className="flex justify-between items-end max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-100">
+                      <div className="text-center">
+                        <div className="w-40 border-b border-gray-400 mb-2"></div>
+                        <p className="font-bold text-royal-900">Rinki Ghosal</p>
+                        <p className="text-xs text-gray-500 uppercase">Director, Hum Foundation</p>
                       </div>
 
-                      {/* Content */}
-                      <div className="text-center flex-grow flex flex-col justify-center">
-                        <p className="text-sm md:text-lg text-gray-600 italic mb-2 md:mb-4">This acknowledges that</p>
-                        <h3 className="text-2xl md:text-5xl font-serif font-bold text-royal-900 mb-2">{result.candidateName}</h3>
-                        <div className="w-2/3 h-[1px] md:h-[2px] bg-gray-300 mx-auto mb-4 md:mb-8"></div>
-
-                        <p className="text-sm md:text-lg text-gray-600 italic mb-2 md:mb-4">Has successfully fulfilled all requirements for the curriculum</p>
-                        <h3 className="text-xl md:text-3xl font-bold text-teal-900 mb-4 md:mb-8">{result.topic}</h3>
-
-                        <p className="text-xs md:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed px-4">
-                          This certification demonstrates proficiency in the prescribed syllabus and successful clearance of the Hum Foundation Standardized Assessment.
-                        </p>
+                      <div className="hidden md:block">
+                        <Award size={96} className="text-gold-500 opacity-80" />
                       </div>
 
-                      {/* Footer */}
-                      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mt-6 md:mt-12 px-4 md:px-12 gap-6 md:gap-0">
-                        <div className="text-center">
-                          <p className="text-sm md:text-lg font-bold text-gray-800 mb-2">{result.date}</p>
-                          <div className="w-32 md:w-48 border-t border-gray-400 pt-2">
-                            <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Date of Issue</p>
-                          </div>
+                      <div className="text-center">
+                        <div className="w-40 border-b border-gray-400 mb-2 font-writing text-xl text-royal-900">
+                          {new Date().toLocaleDateString()}
                         </div>
-
-                        <div className="text-center">
-                          {/* Seal */}
-                          <div className="w-20 h-20 md:w-32 md:h-32 relative mx-auto mb-2">
-                            <div className="absolute inset-0 border-2 md:border-4 border-gold-500 rounded-full flex items-center justify-center">
-                              <div className="text-center">
-                                <div className="text-[8px] md:text-[10px] uppercase tracking-widest text-royal-900 font-bold">Official Seal</div>
-                                <Star className="w-5 h-5 md:w-8 md:h-8 text-gold-500 mx-auto my-1" fill="currentColor" />
-                                <div className="text-[6px] md:text-[8px] text-gray-500">HF-CERTIFIED</div>
-                              </div>
-                            </div>
-                          </div>
-                          <p className="text-[10px] md:text-xs text-gray-400 font-mono">{result.certificateId}</p>
-                        </div>
-
-                        <div className="text-center">
-                          <div className="font-serif italic text-xl md:text-3xl text-royal-900 mb-2">Rinki Ghosal</div>
-                          <div className="w-32 md:w-48 border-t border-gray-400 pt-2">
-                            <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Founder and Chairman</p>
-                          </div>
-                        </div>
+                        <p className="font-bold text-royal-900">Date Issued</p>
+                        <p className="text-xs text-gray-500 uppercase">Kolkata, India</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+
+                {/* On-screen Preview (Scaled Down) */}
+                <div className="mt-12 opacity-50 hover:opacity-100 transition-opacity print:hidden">
+                  <p className="text-center text-sm text-gray-400 mb-2 uppercase tracking-wider">Certificate Preview</p>
+                  <div className="transform scale-50 origin-top border border-gray-200 shadow-sm pointer-events-none h-64 overflow-hidden relative">
+                    {/* Duplicate of structure for visual preview only - simplified */}
+                    <div className="bg-white p-4 text-center">
+                      <h2 className="text-lg font-bold">Certificate of Achievement</h2>
+                      <p>Presented to {userName}</p>
+                    </div>
+                    <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px] flex items-center justify-center">
+                      <p className="bg-white/80 px-4 py-2 rounded-full font-bold text-sm shadow-sm text-gray-600">Click Download to View Full Certificate</p>
+                    </div>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         )}
-
       </div>
     </div>
   );
@@ -1039,6 +1272,10 @@ const PaidTrainingView: React.FC<PaidTrainingViewProps> = ({ setView }) => {
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Cyber Security Training | Hum Foundation"
+        description="Comprehensive Cyber Security training program with global certification and placement support."
+      />
       {/* Hero Section */}
       <section className="relative bg-royal-900 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -1312,6 +1549,10 @@ const NGOTransparencyView: React.FC = () => (
 
 const ContactView: React.FC = () => (
   <div className="bg-royal-900 text-white py-20 animate-fade-in">
+    <SEO
+      title="Contact Us | Hum Foundation"
+      description="Get in touch with Hum Foundation via WhatsApp, Email, or our Helpline."
+    />
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-4xl font-serif font-bold mb-8">Start Your Journey Today</h2>
       <div className="flex flex-col md:flex-row justify-center gap-8">
@@ -1340,14 +1581,96 @@ const ContactView: React.FC = () => (
 // --- Main Layout ---
 
 const App: React.FC = () => {
-  const [view, setView] = useState<ViewState>(ViewState.HOME);
+  const [view, setView] = useState<ViewState>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const viewParam = params.get('view');
+    return (viewParam && Object.values(ViewState).includes(viewParam as ViewState))
+      ? (viewParam as ViewState)
+      : ViewState.HOME;
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Scroll to top on view change
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (view === ViewState.HOME) {
+      params.delete('view');
+    } else {
+      params.set('view', view);
+    }
+    const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
+    window.history.pushState({}, '', newUrl);
+
     window.scrollTo(0, 0);
     setIsMenuOpen(false);
   }, [view]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const viewParam = params.get('view');
+      if (viewParam && Object.values(ViewState).includes(viewParam as ViewState)) {
+        setView(viewParam as ViewState);
+      } else {
+        setView(ViewState.HOME);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Start ESDP Exam from ESDP View
+  const startESDPExam = () => {
+    const esdpModule = LMS_MODULES.find(m => m.id === 'esdp-program');
+    if (esdpModule) {
+      setView(ViewState.LMS);
+      // We need to wait for the view to change to LMS, then the ExamSystemView will render.
+      // However, ExamSystemView manages its own state. 
+      // To bridge this, we might need a context or a way to pass props to ExamSystemView.
+      // OR, we can use a query param or global event.
+      // Simpler approach: 
+      // We need to pass state to ExamSystemView. 
+      // Since we can't easily pass props through this switch statement without lifting state up completely,
+      // I will implement a simple "auto-start" mechanism using a temporary `window` property or refactoring slightly.
+
+      // Better approach: Lift `currentModule` and `step` to App? Too big refactor.
+      // Let's use localStorage to signal the start of exam.
+      localStorage.setItem('START_ESDP_EXAM', 'true');
+    }
+  };
+
+  // Hack to handle auto-starting exam when switching to LMS view from ESDP
+  // This needs to be handled inside ExamSystemView ideally.
+
+  const renderCurrentView = () => {
+    switch (view) {
+      case ViewState.HOME:
+        return <HomeView setView={setView} />;
+      case ViewState.BUSINESS_SUPPORT:
+        return <BusinessSupportView />;
+      case ViewState.SCST_TRAINING:
+        return <ScstTrainingView />;
+      case ViewState.MARKETPLACE:
+        return <MarketplaceView />;
+      case ViewState.LMS:
+        return <ExamSystemView />;
+      case ViewState.CONTACT:
+        return <ContactView />;
+      case ViewState.PRIVACY_POLICY:
+        return <PrivacyPolicyView />;
+      case ViewState.TERMS_OF_SERVICE:
+        return <TermsOfServiceView />;
+      case ViewState.SELLER_GUIDELINES:
+        return <SellerGuidelinesView />;
+      case ViewState.NGO_TRANSPARENCY:
+        return <NGOTransparencyView />;
+      case ViewState.PAID_TRAINING:
+        return <PaidTrainingView setView={setView} />;
+      case ViewState.ESDP_PROGRAM:
+        return <ESDPView onTakeExam={startESDPExam} />;
+      default:
+        return <HomeView setView={setView} />;
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
@@ -1368,6 +1691,7 @@ const App: React.FC = () => {
           <nav className="hidden md:flex items-center gap-8">
             <button onClick={() => setView(ViewState.BUSINESS_SUPPORT)} className={`text-sm font-medium hover:text-royal-900 transition-colors ${view === ViewState.BUSINESS_SUPPORT ? 'text-royal-900 font-bold' : 'text-gray-600'}`}>Start Business</button>
             <button onClick={() => setView(ViewState.SCST_TRAINING)} className={`text-sm font-medium hover:text-teal-800 transition-colors ${view === ViewState.SCST_TRAINING ? 'text-teal-800 font-bold' : 'text-gray-600'}`}>Training</button>
+            <button onClick={() => setView(ViewState.ESDP_PROGRAM)} className={`text-sm font-medium hover:text-indigo-700 transition-colors ${view === ViewState.ESDP_PROGRAM ? 'text-indigo-700 font-bold' : 'text-gray-600'}`}>ESDP Program</button>
             <button onClick={() => setView(ViewState.PAID_TRAINING)} className={`text-sm font-medium hover:text-green-600 transition-colors ${view === ViewState.PAID_TRAINING ? 'text-green-600 font-bold' : 'text-gray-600'}`}>Cyber Security</button>
             <button onClick={() => setView(ViewState.MARKETPLACE)} className={`text-sm font-medium hover:text-royal-900 transition-colors ${view === ViewState.MARKETPLACE ? 'text-royal-900 font-bold' : 'text-gray-600'}`}>Marketplace</button>
             <button onClick={() => setView(ViewState.LMS)} className={`text-sm font-medium hover:text-royal-900 transition-colors ${view === ViewState.LMS ? 'text-royal-900 font-bold' : 'text-gray-600'}`}>Certifications</button>
@@ -1386,6 +1710,7 @@ const App: React.FC = () => {
             <div className="flex flex-col p-6 space-y-4">
               <button onClick={() => setView(ViewState.BUSINESS_SUPPORT)} className="text-left py-2 font-medium text-gray-700">Start Business</button>
               <button onClick={() => setView(ViewState.SCST_TRAINING)} className="text-left py-2 font-medium text-gray-700">SC/ST Training</button>
+              <button onClick={() => setView(ViewState.ESDP_PROGRAM)} className="text-left py-2 font-medium text-gray-700">ESDP Program</button>
               <button onClick={() => setView(ViewState.PAID_TRAINING)} className="text-left py-2 font-medium text-gray-700">Cyber Security</button>
               <button onClick={() => setView(ViewState.MARKETPLACE)} className="text-left py-2 font-medium text-gray-700">Marketplace</button>
               <button onClick={() => setView(ViewState.LMS)} className="text-left py-2 font-medium text-gray-700">Certifications</button>
@@ -1397,17 +1722,7 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-grow print:w-full print:h-full">
-        {view === ViewState.HOME && <HomeView setView={setView} />}
-        {view === ViewState.BUSINESS_SUPPORT && <BusinessSupportView />}
-        {view === ViewState.SCST_TRAINING && <ScstTrainingView />}
-        {view === ViewState.PAID_TRAINING && <PaidTrainingView setView={setView} />}
-        {view === ViewState.MARKETPLACE && <MarketplaceView />}
-        {view === ViewState.LMS && <ExamSystemView />}
-        {view === ViewState.PRIVACY_POLICY && <PrivacyPolicyView />}
-        {view === ViewState.TERMS_OF_SERVICE && <TermsOfServiceView />}
-        {view === ViewState.SELLER_GUIDELINES && <SellerGuidelinesView />}
-        {view === ViewState.NGO_TRANSPARENCY && <NGOTransparencyView />}
-        {view === ViewState.CONTACT && <ContactView />}
+        {renderCurrentView()}
       </main>
 
       {/* Footer */}

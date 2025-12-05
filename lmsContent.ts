@@ -394,140 +394,256 @@ Common entrepreneurial fears:
          {
             type: 'text',
             title: 'Program Syllabus & Exam Guide',
-            content: `**Cyber Security Certification Program**
+            content: `Cyber Security Certification Program
 
 This comprehensive program covers the essential skills required for a career in Cyber Security.
 
-**Module 1: Introduction to Cyber Security**
+Module 1: Introduction to Cyber Security
 - Fundamentals of Information Security
 - CIA Triad (Confidentiality, Integrity, Availability)
 - Types of Cyber Attacks & Threat Actors
 - Legal & Ethical Aspects of Hacking
 
-**Module 2: Networking & Security Basics**
+Module 2: Networking & Security Basics
 - OSI Model & TCP/IP Protocol Suite
 - IP Addressing, Subnetting & Routing
 - Ports, Protocols & Services (HTTP, FTP, SSH, DNS)
 - Network Devices (Firewalls, Routers, Switches)
 
-**Module 3: Ethical Hacking & Penetration Testing**
+Module 3: Ethical Hacking & Penetration Testing
 - Phases of Hacking (Reconnaissance, Scanning, Gaining Access)
 - Vulnerability Assessment vs. Penetration Testing
 - System Hacking: Password Cracking & Privilege Escalation
 - Social Engineering Attacks
 
-**Module 4: Web Application Security**
+Module 4: Web Application Security
 - OWASP Top 10 Vulnerabilities
 - SQL Injection (SQLi) & Cross-Site Scripting (XSS)
 - Session Hijacking & CSRF
 - Web Server Security & Hardening
 
-**Module 5: Security Monitoring & Analysis**
+Module 5: Security Monitoring & Analysis
 - Introduction to SIEM
 - Log Analysis & Incident Response
 - Network Traffic Analysis with Wireshark
 - Intrusion Detection & Prevention Systems (IDS/IPS)
 
-**Module 6: Cloud Security & Future Trends**
+Module 6: Cloud Security & Future Trends
 - Cloud Computing Models (IaaS, PaaS, SaaS)
 - Cloud Security Challenges & Best Practices
 - IoT Security & Mobile Device Security
 
-**Certification Exam Information**
-- **Format**: 20 Scenario-based Multiple Choice Questions
-- **Passing Score**: 70%
-- **Time Limit**: 45 Minutes
-- **Certificate**: Globally valid certificate upon passing.
+Certification Exam Information
+- Format: 20 Scenario-based Multiple Choice Questions
+- Passing Score: 70%
+- Time Limit: 45 Minutes
+- Certificate: Globally valid certificate upon passing.
 
-**Note**: This is a rigorous exam designed to test your practical understanding. Please ensure you have completed the training before attempting.`,
-            contentHi: `**साइबर सुरक्षा प्रमाणन कार्यक्रम**
+Note: This is a rigorous exam designed to test your practical understanding. Please ensure you have completed the training before attempting.`,
+            contentHi: `साइबर सुरक्षा प्रमाणन कार्यक्रम
 
 यह व्यापक कार्यक्रम साइबर सुरक्षा में करियर के लिए आवश्यक आवश्यक कौशल को शामिल करता है।
 
-**मॉड्यूल 1: साइबर सुरक्षा का परिचय**
+मॉड्यूल 1: साइबर सुरक्षा का परिचय
 - सूचना सुरक्षा के मूल सिद्धांत
 - सीआईए ट्रायड (गोपनीयता, अखंडता, उपलब्धता)
 - साइबर हमलों और खतरे के अभिनेताओं के प्रकार
 - हैकिंग के कानूनी और नैतिक पहलू
 
-**मॉड्यूल 2: नेटवर्किंग और सुरक्षा मूल बातें**
+मॉड्यूल 2: नेटवर्किंग और सुरक्षा मूल बातें
 - ओएसआई मॉडल और टीसीपी/आईपी प्रोटोकॉल सूट
 - आईपी एड्रेसिंग, सबनेटिंग और रूटिंग
 - पोर्ट, प्रोटोकॉल और सेवाएं (HTTP, FTP, SSH, DNS)
 - नेटवर्क डिवाइस (फायरवॉल, राउटर, स्विच)
 
-**मॉड्यूल 3: एथिकल हैकिंग और पेनेट्रेशन टेस्टिंग**
+मॉड्यूल 3: एथिकल हैकिंग और पेनेट्रेशन टेस्टिंग
 - हैकिंग के चरण (टोही, स्कैनिंग, पहुंच प्राप्त करना)
 - भेद्यता मूल्यांकन बनाम पेनेट्रेशन टेस्टिंग
 - सिस्टम हैकिंग: पासवर्ड क्रैकिंग और विशेषाधिकार वृद्धि
 - सोशल इंजीनियरिंग हमले
 
-**मॉड्यूल 4: वेब एप्लिकेशन सुरक्षा**
+मॉड्यूल 4: वेब एप्लिकेशन सुरक्षा
 - OWASP शीर्ष 10 कमजोरियां
 - SQL इंजेक्शन (SQLi) और क्रॉस-साइट स्क्रिप्टिंग (XSS)
 - सत्र अपहरण और CSRF
 - वेब सर्वर सुरक्षा और सख्त करना
 
-**मॉड्यूल 5: सुरक्षा निगरानी और विश्लेषण**
+मॉड्यूल 5: सुरक्षा निगरानी और विश्लेषण
 - SIEM का परिचय
 - लॉग विश्लेषण और घटना प्रतिक्रिया
 - वायरशार्क के साथ नेटवर्क ट्रैफ़िक विश्लेषण
 - घुसपैठ का पता लगाने और रोकथाम प्रणाली (IDS/IPS)
 
-**मॉड्यूल 6: क्लाउड सुरक्षा और भविष्य के रुझान**
+मॉड्यूल 6: क्लाउड सुरक्षा और भविष्य के रुझान
 - क्लाउड कंप्यूटिंग मॉडल (IaaS, PaaS, SaaS)
 - क्लाउड सुरक्षा चुनौतियां और सर्वोत्तम प्रथाएं
 - IoT सुरक्षा और मोबाइल डिवाइस सुरक्षा
 
-**परीक्षा जानकारी**
-- **प्रारूप**: 20 परिदृश्य-आधारित बहुविकल्पीय प्रश्न
-- **उत्तीर्ण अंक**: 70%
-- **समय सीमा**: 45 मिनट
-- **प्रमाणपत्र**: उत्तीर्ण होने पर विश्व स्तर पर मान्य प्रमाण पत्र।`,
-            contentBn: `**সাইবার নিরাপত্তা সার্টিফিকেশন প্রোগ্রাম**
+परीक्षा जानकारी
+- प्रारूप: 20 परिदृश्य-आधारित बहुविकल्पीय प्रश्न
+- उत्तीर्ण अंक: 70%
+- समय सीमा: 45 मिनट
+- प्रमाणपत्र: उत्तीर्ण होने पर विश्व स्तर पर मान्य प्रमाण पत्र।`,
+            contentBn: `সাইবার নিরাপত্তা সার্টিফিকেশন প্রোগ্রাম
 
 এই ব্যাপক প্রোগ্রামটি সাইবার নিরাপত্তায় ক্যারিয়ারের জন্য প্রয়োজনীয় দক্ষতাগুলি কভার করে।
 
-**মডিউল 1: সাইবার নিরাপত্তার ভূমিকা**
+মডিউল 1: সাইবার নিরাপত্তার ভূমিকা
 - তথ্য নিরাপত্তার মৌলিক বিষয়
 - সিআইএ ট্রায়াড (গোপনীয়তা, সততা, প্রাপ্যতা)
 - সাইবার আক্রমণ এবং হুমকি অভিনেতাদের প্রকার
 - হ্যাকিংয়ের আইনি ও নৈতিক দিক
 
-**মডিউল 2: নেটওয়ার্কিং এবং নিরাপত্তা বেসিক**
+মডিউল 2: নেটওয়ার্কিং এবং নিরাপত্তা বেসিক
 - ওএসআই মডেল এবং টিসিপি/আইপি প্রোটোকল স্যুট
 - আইপি অ্যাড্রেসিং, সাবনেটিং এবং রাউটিং
 - পোর্ট, প্রোটোকল এবং পরিষেবা (HTTP, FTP, SSH, DNS)
 - নেটওয়ার্ক ডিভাইস (ফায়ারওয়াল, রাউটার, সুইচ)
 
-**মডিউল 3: এথিক্যাল হ্যাকিং এবং পেনিট্রেশন টেস্টিং**
+মডিউল 3: এথিক্যাল হ্যাকিং এবং পেনিট্রেশন টেস্টিং
 - হ্যাকিংয়ের পর্যায় (রেকনেসান্স, স্ক্যানিং, অ্যাক্সেস লাভ)
 - দুর্বলতা মূল্যায়ন বনাম পেনিট্রেশন টেস্টিং
 - সিস্টেম হ্যাকিং: পাসওয়ার্ড ক্র্যাকিং এবং প্রিভিলেজ এসকেলেশন
 - সোশ্যাল ইঞ্জিনিয়ারিং অ্যাটাক
 
-**মডিউল 4: ওয়েব অ্যাপ্লিকেশন নিরাপত্তা**
+মডিউল 4: ওয়েব অ্যাপ্লিকেশন নিরাপত্তা
 - OWASP শীর্ষ 10 দুর্বলতা
 - এসকিউএল ইনজেকশন (SQLi) এবং ক্রস-সাইট স্ক্রিপ্টিং (XSS)
 - সেশন হাইjacking এবং CSRF
 - ওয়েব সার্ভার নিরাপত্তা এবং হার্ডেনিং
 
-**মডিউল 5: নিরাপত্তা পর্যবেক্ষণ এবং বিশ্লেষণ**
+মডিউল 5: নিরাপত্তা পর্যবেক্ষণ এবং বিশ্লেষণ
 - SIEM এর ভূমিকা
 - লগ বিশ্লেষণ এবং ঘটনা প্রতিক্রিয়া
 - ওয়্যারশার্কের সাথে নেটওয়ার্ক ট্রাফিক বিশ্লেষণ
 - অনুপ্রবেশ সনাক্তকরণ এবং প্রতিরোধ ব্যবস্থা (IDS/IPS)
 
-**মডিউল 6: ক্লাউড নিরাপত্তা এবং ভবিষ্যতের প্রবণতা**
+মডিউল 6: ক্লাউড নিরাপত্তা এবং ভবিষ্যতের প্রবণতা
 - ক্লাউড কম্পিউটিং মডেল (IaaS, PaaS, SaaS)
 - ক্লাউড নিরাপত্তা চ্যালেঞ্জ এবং সর্বোত্তম অনুশীলন
 - আইওটি নিরাপত্তা এবং মোবাইল ডিভাইস নিরাপত্তা
 
-**পরীক্ষার তথ্য**
-- **ফরম্যাট**: 20টি দৃশ্যকল্প-ভিত্তিক মাল্টিপল চয়েস প্রশ্ন
-- **পাসিং স্কোর**: 70%
-- **সময়সীমা**: 45 মিনিট
-- **সার্টিফিকেট**: পাস করার পর বিশ্বব্যাপী বৈধ সার্টিফিকেট।`
+পরীক্ষার তথ্য
+- ফরম্যাট: 20টি দৃশ্যকল্প-ভিত্তিক মাল্টিপল চয়েস প্রশ্ন
+- পাসিং স্কোর: 70%
+- সময়সীমা: 45 মিনিট
+- সার্টিফিকেট: পাস করার পর বিশ্বব্যাপী বৈধ সার্টিফিকেট।`
+         }
+      ]
+   },
+   {
+      id: 'esdp-program',
+      title: 'ESDP Entrepreneurship Program',
+      description: '6-Week Ministry of MSME & CTTC Certified Entrepreneurship Development Programme.',
+      duration: '6 Weeks',
+      level: 'Advanced',
+      materials: [
+         {
+            type: 'text',
+            title: 'Week 1: Entrepreneural Motivation & Charms',
+            content: `**Introduction to Achievement Motivation**
+            
+            Entrepreneurship is driven by the need for achievement. This module covers psychological aspects of entrepreneurship.
+
+            **Key Concepts:**
+            1. **Self-Efficacy**: Belief in one's ability to succeed.
+            2. **Risk Taking**: Calculated vs Gambling.
+            3. **Goal Setting**: SMART Goals (Specific, Measurable, Achievable, Relevant, Time-bound).
+            
+            **Assignments:**
+            - Conduct a SWOT analysis of yourself.
+            - Identify 3 local business opportunities.`,
+            contentHi: `**उपलब्धि प्रेरणा का परिचय**
+            
+            उद्यमिता उपलब्धि की आवश्यकता से प्रेरित होती है। यह मॉड्यूल उद्यमिता के मनोवैज्ञानिक पहलुओं को शामिल करता है।
+
+            **मुख्य अवधारणाएँ:**
+            1. **आत्म-प्रभावकारिता**: सफल होने की अपनी क्षमता में विश्वास।
+            2. **जोखिम लेना**: गणना बनाम जुआ।
+            3. **लक्ष्य निर्धारण**: SMART लक्ष्य (विशिष्ट, मापने योग्य, प्राप्त करने योग्य, प्रासंगिक, समयबद्ध)।`,
+            contentBn: `**কৃতিত্ব অনুপ্রেরণার পরিচিতি**
+            
+            উদ্যোক্তা কৃতিত্বের প্রয়োজন দ্বারা চালিত হয়। এই মডিউলটি উদ্যোক্তার মনস্তাত্ত্বিক দিকগুলি কভার করে।
+
+            **মূল ধারণা:**
+            1. **আত্ম-কার্যকারিতা**: সফল হওয়ার নিজের ক্ষমতায় বিশ্বাস।
+            2. **ঝুঁকি নেওয়া**: গণনাকৃত বনাম জুয়া।
+            3. **লক্ষ্য নির্ধারণ**: SMART লক্ষ্য (নির্দিষ্ট, পরিমাপযোগ্য, অর্জনযোগ্য, প্রাসঙ্গিক, সময়সীমা)।`
+         },
+         {
+            type: 'text',
+            title: 'Week 2-3: Project Identification & Selection',
+            content: `**Market Survey and Opportunity Guidance**
+            
+            How to select the right product or service?
+            
+            1. **Need Assessment**: What does the community lack?
+            2. **Resource Analysis**: Availability of raw material and labor.
+            3. **Demand Forecasting**: Estimating future sales.
+            
+            **Project Report Preparation**:
+            - Executive Summary
+            - Marketing Plan
+            - Production/Operational Plan
+            - Financial Plan (Cost of Project, Working Capital, ROI)`,
+            contentHi: `**बाजार सर्वेक्षण और अवसर मार्गदर्शन**
+            
+            सही उत्पाद या सेवा का चयन कैसे करें?
+            
+            1. **आवश्यकता मूल्यांकन**: समुदाय में किस चीज की कमी है?
+            2. **संसाधन विश्लेषण**: कच्चे माल और श्रम की उपलब्धता।
+            3. **मांग पूर्वानुमान**: भविष्य की बिक्री का अनुमान लगाना।`,
+            contentBn: `**বাজার জরিপ এবং সুযোগ নির্দেশিকা**
+            
+            কীভাবে সঠিক পণ্য বা পরিষেবা নির্বাচন করবেন?
+            
+            1. **প্রয়োজন মূল্যায়ন**: সম্প্রদায়ের কী অভাব আছে?
+            2. **সম্পদ বিশ্লেষণ**: কাঁচামাল এবং শ্রমের প্রাপ্যতা।
+            3. **চাহিদা পূর্বাভাস**: ভবিষ্যতের বিক্রয়ের অনুমান করা।`
+         },
+         {
+            type: 'text',
+            title: 'Week 4: Management of MSME',
+            content: `**Marketing & Financial Management**
+             
+             - **Marketing Mix**: 4Ps (Product, Price, Place, Promotion).
+             - **Digital Marketing**: Leveraging Social Media.
+             - **Bookkeeping**: Maintaining Cash Book, Ledger, and Journal.
+             - **Banking**: Loan procedures, Interest rates, Subsidy schemes (PMEGP).`,
+            contentHi: `**विपणन और वित्तीय प्रबंधन**
+             
+             - **विपणन मिश्रण**: 4Ps (उत्पाद, मूल्य, स्थान, प्रचार)।
+             - **डिजिटल विपणन**: सोशल मीडिया का लाभ उठाना।
+             - **बहीखाता**: कैश बुक, लेजर और जर्नल बनाए रखना।`,
+            contentBn: `**বিপণন এবং আর্থিক ব্যবস্থাপনা**
+             
+             - **বিপণন মিশ্রণ**: 4Ps (পণ্য, মূল্য, স্থান, প্রচার)।
+             - **ডিজিটাল বিপণন**: সোশ্যাল মিডিয়া ব্যবহার করা।
+             - **হিসাবরক্ষণ**: ক্যাশ বুক, লেজার এবং জার্নাল বজায় রাখা।`
+         },
+         {
+            type: 'text',
+            title: 'Week 5-6: Legal Aspects & Support Ecosystem',
+            content: `**Legal Formalities for Setting up Enterprise**
+             
+             1. **Udyam Registration**: Process and benefits.
+             2. **Licenses**: Trade License, FSSAI (for food), GST Registration.
+             3. **Labour Laws**: Basic understanding of applicable acts.
+             
+             **Support Agencies**:
+             - DIC (District Industries Centre)
+             - KVIC (Khadi and Village Industries Commission)
+             - MSME-DI`,
+            contentHi: `**उद्यम स्थापित करने के लिए कानूनी औपचारिकताएं**
+             
+             1. **उद्यम पंजीकरण**: प्रक्रिया और लाभ।
+             2. **लाइसेंस**: ट्रेड लाइसेंस, FSSAI (भोजन के लिए), GST पंजीकरण।
+             3. **श्रम कानून**: लागू अधिनियमों की बुनियादी समझ।`,
+            contentBn: `**এন্টারপ্রাইজ স্থাপনের জন্য আইনি আনুষ্ঠানিকতা**
+             
+             1. **উদ্যম নিবন্ধন**: প্রক্রিয়া এবং সুবিধা।
+             2. **লাইসেন্স**: ট্রেড লাইসেন্স, FSSAI (খাবারের জন্য), GST নিবন্ধন।
+             3. **শ্রম আইন**: প্রযোজ্য আইনগুলির প্রাথমিক ধারণা।`
          }
       ]
    }

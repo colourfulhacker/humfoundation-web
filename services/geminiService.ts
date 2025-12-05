@@ -5,11 +5,27 @@ import { QuizQuestion } from "../types";
 // Assume import.meta.env.VITE_GEMINI_API_KEY is pre-configured and valid.
 const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
-export const generateQuizQuestions = async (topic: string): Promise<QuizQuestion[]> => {
+export const generateQuizQuestions = async (topic: string, count: number = 5): Promise<QuizQuestion[]> => {
   try {
     const model = "gemini-2.5-flash";
-    const prompt = `Create a professional certification exam with 5 multiple-choice questions on the subject: "${topic}". 
+
+    let promptTopic = topic;
+    let complexity = "intermediate";
+
+    // Enrich prompt for ESDP
+    if (topic.includes("Entrepreneurship")) {
+      promptTopic = `Entrepreneurship Skill Development Programme (ESDP) covering:
+      1. Ministry of MSME Schemes (PMEGP, CGTMSE) & Udyam Registration.
+      2. Project Report Preparation: Fixed/Working Capital, Break-even Analysis, ROI.
+      3. Marketing Management: 4Ps, Digital Marketing, Market Survey.
+      4. Financial Management: Cash Flow, Balance Sheet, GST Basics.
+      5. Soft Skills: Communication, Leadership, Negotiation.`;
+      complexity = "advanced, scenario-based";
+    }
+
+    const prompt = `Create a professional certification exam with ${count} multiple-choice questions on the subject: "${promptTopic}". 
     The target audience is women entrepreneurs and vocational students in India. 
+    Complexity Level: ${complexity}.
     Ensure the questions test practical application, safety standards (if applicable), and core business/skill concepts.
     Return the result strictly as a JSON array.`;
 
